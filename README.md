@@ -78,4 +78,4 @@ ID PWなしでに楽曲情報を閲覧可能。ログイン情報を持たない
 使用しない場合は、使用素材の項目をREADMEから削除してください。  
  
 # ロゴ作成
-canva (https://www.canva.com/) にてロゴ作成予定
+canva( https://www.canva.com/ )にてロゴ作成予定
