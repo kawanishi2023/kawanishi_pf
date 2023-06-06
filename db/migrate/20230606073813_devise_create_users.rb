@@ -35,7 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
 
       #↓手動で追加↓#
 
-      ## 会員名前を保存するカラム
+      ## 会員の名前を保存するカラム
       t.string :name
       ## 退会フラグ 真(true)退会/偽(false)有効
       t.boolean :is_deleted, default: false

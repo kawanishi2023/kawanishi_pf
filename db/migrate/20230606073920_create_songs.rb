@@ -11,9 +11,9 @@ class CreateSongs < ActiveRecord::Migration[6.1]
       ## チューニングを保存するカラム
       t.string :tuning
       ## Capoを保存するカラム
-      t.int :capo
+      t.integer :capo
       ## BPMを保存するカラム
-      t.int :bpm
+      t.integer :bpm
       ## 主音(曲のキー)を保存するカラム
       t.string :tonic
       ## コード進行を保存するカラム
