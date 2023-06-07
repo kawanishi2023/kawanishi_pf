@@ -1,0 +1,22 @@
+<footer class=" text-white pt-5 pb-4" style="background-color: #fde8e9;">
+  <div class="container">
+    <div class="row no-gutters">
+      
+      <div class="col-md-8">
+        <%#= image_tag('logo.png') %>
+          <% if admin_signed_in? %> <!--adminログイン状態の際に、表示したいheaderのメニューを記載-->
+            <%= link_to admin_homes_top_path, class:'btn btn-outline-danger' do %>
+            管理者ログイン中
+            <% end %>
+          <% elsif user_signed_in? %> <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
+            <%= link_to user_path(current_customer), class:'btn btn-outline-secondary' do %>
+              ようこそ、<%= current_user.name %>さん！
+            <% end %>
+          <% else %><!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
+          <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

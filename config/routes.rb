@@ -2,8 +2,23 @@ Rails.application.routes.draw do
   
   root to: "homes#top"
   get 'homes/about'
-  devise_for :admins
-  devise_for :users
+  
+  # devise_for :admins
+  # devise_for :users
+  
+  # 顧客用
+  # URL /users/sign_in ...
+  devise_for :users,skip: [:passwords], controllers: {
+  registrations: "user/registrations",
+  sessions: 'user/sessions'
+  }
+
+  # 管理者用
+  # URL /admin/sign_in ...
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+  }
+  
   
   namespace :admin do
     get 'admins/index'
@@ -14,16 +29,19 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'opinions/index'
   end
+  
   namespace :user do
     get 'opinions/new'
     get 'opinions/create'
   end
+  
   namespace :admin do
     get 'genres/index'
     get 'genres/new'
     get 'genres/create'
     get 'genres/destroy'
   end
+  
   namespace :user do
     get 'songs/new'
     get 'songs/create'
@@ -33,6 +51,7 @@ Rails.application.routes.draw do
     get 'songs/index'
     get 'songs/destroy'
   end
+  
   namespace :user do
     get 'users/show'
     get 'users/edit'

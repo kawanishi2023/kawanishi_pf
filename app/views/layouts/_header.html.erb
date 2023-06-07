@@ -1,0 +1,48 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #fde8e9;">
+    <div class="container">
+      <!--<a class="navbar-brand" href="/"><%#= image_tag 'logo.png' , size: '200x40' %></a>-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+
+
+      <% if admin_signed_in? %> <!--adminログイン状態の際に、表示したいheaderのメニューを記載-->
+
+      <li>
+      <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary' do %>
+      <i class="fas fa-sign-out-alt"></i> ログアウト
+      <% end %>
+      </li>
+      
+      <% elsif user_signed_in? %> <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
+      
+      <li>
+      <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-secondary' do %>
+      <i class="fas fa-sign-out-alt"></i> Sign out
+      <% end %>
+      </li>
+      
+      <% else %> <!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
+      
+      <li>
+      <%= link_to new_user_registration_path,class: 'nav-link text-secondary' do %>
+      <i class="fas fa-user-plus"></i> Sign up
+      <% end %>
+      </li>
+      
+      <li>
+      <%= link_to new_user_session_path,class: 'nav-link text-secondary' do %>
+      <i class="fas fa-sign-in-alt"></i> Sign in
+      <% end %>
+      </li>
+      
+      <% end %>
+      
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
