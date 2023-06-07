@@ -1,4 +1,9 @@
 class CreateSongs < ActiveRecord::Migration[6.1]
+  
+  #↓手動で追加↓#
+  has_one_attached :sound_date
+  #↑手動で追加↑#
+  
   def change
     create_table :songs do |t|
 
