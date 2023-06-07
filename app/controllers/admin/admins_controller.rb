@@ -2,9 +2,9 @@ class Admin::AdminsController < ApplicationController
   def index
   end
 
-  def update
+  def withdrawal
   end
 
-  def withdrawal
+  def confirm
   end
 end

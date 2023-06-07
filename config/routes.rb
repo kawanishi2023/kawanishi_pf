@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  
+  root to: "homes#top"
+  get 'homes/about'
+  devise_for :admins
+  devise_for :users
+  
+  namespace :admin do
+    get 'admins/index'
+    get 'admins/withdrawal'
+    get 'admins/confirm'
+  end
+
   namespace :admin do
     get 'opinions/index'
   end
@@ -11,11 +23,6 @@ Rails.application.routes.draw do
     get 'genres/new'
     get 'genres/create'
     get 'genres/destroy'
-  end
-  namespace :admin do
-    get 'admins/index'
-    get 'admins/update'
-    get 'admins/withdrawal'
   end
   namespace :user do
     get 'songs/new'
@@ -31,9 +38,6 @@ Rails.application.routes.draw do
     get 'users/edit'
     get 'users/update'
   end
-  root to: "homes#top"
-  get 'homes/about'
-  devise_for :admins
-  devise_for :users
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
