@@ -1,0 +1,9 @@
+<h1>自分が投稿した楽曲一覧</h1>
+
+<% @song.each do |song| %>
+
+<%= link_to song_path(song.id) do %>
+<%= song.name %>
+<% end %>
+
+<% end %>

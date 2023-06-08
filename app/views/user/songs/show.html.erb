@@ -18,12 +18,12 @@
 
 <td>
 <% if @song.user == current_user %>
-<%= link_to "Edit", edit_song_path(@song.id), class:'btn btn-success btn-sm btn-block mb-3 edit' %>
+<%= link_to "Edit", edit_song_path(@song.id)  %>
 <% end %>
 </td>
 
 <td>
 <% if @song.user == current_user %>
-<%= link_to "Destroy", song_path(@song.id), method: :delete, "data-confirm" => "本当に削除しますか？" ,class:'btn btn-danger btn-sm btn-block mb-3 edit' %>
+<%= link_to "Destroy", song_path(@song.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
 <% end %>
 </td>
