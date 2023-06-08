@@ -1,2 +1,29 @@
-<h1>User::Songs#show</h1>
-<p>Find me in app/views/user/songs/show.html.erb</p>
+<h1>楽曲詳細</h1>
+
+
+<%= @song.name %>
+<%= @song.artist %>
+<%= @song.tuning %>
+<%= @song.capo %>
+<%= @song.bpm %>
+<%= @song.tonic %>
+<%= @song.chord %>
+<%= @song.secret_word %>
+<% if @song.is_opened == false %>
+非公開
+<% elsif %>
+公開
+<% end %>
+
+
+<td>
+<% if @song.user == current_user %>
+<%= link_to "Edit", edit_song_path(@song.id), class:'btn btn-success btn-sm btn-block mb-3 edit' %>
+<% end %>
+</td>
+
+<td>
+<% if @song.user == current_user %>
+<%= link_to "Destroy", song_path(@song.id), method: :delete, "data-confirm" => "本当に削除しますか？" ,class:'btn btn-danger btn-sm btn-block mb-3 edit' %>
+<% end %>
+</td>

@@ -1,14 +1,11 @@
 class CreateSongs < ActiveRecord::Migration[6.1]
   
-  #↓手動で追加↓#
-  has_one_attached :sound_date
-  #↑手動で追加↑#
-  
   def change
     create_table :songs do |t|
 
       #↓手動で追加↓#
-
+      
+      t.integer :user_id
       ## 曲名を保存するカラム
       t.string :name
       ## アーティストを保存するカラム

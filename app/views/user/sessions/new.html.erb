@@ -1,4 +1,4 @@
-<h2>Log in</h2>
+<h2>会員ログイン画面</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -24,3 +24,7 @@
 <% end %>
 
 <%= render "user/shared/links" %>
+
+<%= link_to new_admin_session_path,class: 'nav-link text-secondary' do %>
+管理者ログインはこちら
+<% end %>

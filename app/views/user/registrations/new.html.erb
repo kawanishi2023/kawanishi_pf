@@ -1,7 +1,13 @@
-<h2>Sign up</h2>
+<h2>会員登録画面</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "user/shared/error_messages", resource: resource %>
+
+  <!--会員登録の際に名前を追加-->
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
