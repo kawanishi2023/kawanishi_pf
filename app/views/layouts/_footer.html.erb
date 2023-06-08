@@ -1,19 +1,19 @@
-<footer class=" text-white pt-5 pb-4" style="background-color: #C4DFDF;">
+<footer class=" text-white pt-5 pb-4" style="background-color: #EEEEEE;">
   <div class="container">
     <div class="row no-gutters">
       
       <div class="col-md-8">
           <% if admin_signed_in? %> <!--adminログイン状態の際に、表示したいheaderのメニューを記載-->
          
-            管理者ログイン中
+            <span class="nes-text">admin</span>
           
           <% elsif user_signed_in? %> <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
             
-            ユーザーログイン中
+            <span class="nes-text">menber</span>
               
           <% else %><!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
           
-          　ゲストユーザー
+          　<span class="nes-text is-primary">guest</span>
           
           <% end %>
           </li>

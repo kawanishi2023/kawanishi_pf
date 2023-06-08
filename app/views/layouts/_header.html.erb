@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #C4DFDF;">
+  <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #EEEEEE;">
     <div class="container">
       <!--<a class="navbar-brand" href="/"><%#= image_tag 'logo.png' , size: '200x40' %></a>-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,29 +19,29 @@
 
       <% elsif user_signed_in? %> <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
 
-      <%= link_to root_path,class: 'nav-link text-secondary' do %>
-      トップページ
+      <%= link_to root_path,class: 'nes-btn' do %>
+      top page
       <% end %>
       </li>
 
 
-      <li>
-      <%= link_to new_song_path,class: 'nav-link text-secondary' do %>
-      曲を作る
+      
+      <%= link_to new_song_path,class: 'nes-btn' do %>
+      make song
       <% end %>
-      </li>
+      
 
-      <li>
-      <%= link_to songs_path,class: 'nav-link text-secondary' do %>
-      制作楽曲一覧
+      
+      <%= link_to songs_path,class: 'nes-btn' do %>
+      your songs
       <% end %>
-      </li>
+      
 
-      <li>
-      <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-secondary' do %>
-      会員ログアウト
+      
+      <%= link_to destroy_user_session_path, method: :delete, class: 'nes-btn is-error' do %>
+      log out
       <% end %>
-      </li>
+      
 
       <% else %> <!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
 
