@@ -1,2 +1,34 @@
-<h1>User::Songs#edit</h1>
-<p>Find me in app/views/user/songs/edit.html.erb</p>
+<h1>song edit</h1>
+
+  <%= form_with model: @song do |f| %>
+  
+    <h4>title</h4>
+      <%= f.text_field :name %>
+      
+    <h4>artist</h4>
+      <%= f.text_field :artist %>
+      
+    <h4>tuning</h4>
+      <%= f.text_field :tuning %>
+      
+    <h4>Capo</h4>
+      <%= f.text_field :capo %>
+      
+    <h4>BPM</h4>
+      <%= f.text_field :bpm %>
+      
+    <h4>tonic</h4>
+      <%= f.text_field :tonic %>
+      
+    <h4>chord&lyric</h4>
+      <%= f.text_area :chord %>
+      
+    <h4>status</h4>  
+    <%= f.radio_button :is_opened, false, checked:false %>close
+    <%= f.radio_button :is_opened, true %>open
+    
+    <h4>secret_word</h4>
+    <%= f.text_field :secret_word %>
+      
+    <%= f.submit '投稿' %>
+  <% end %>

@@ -1,2 +1,13 @@
-<h1>User::Users#edit</h1>
-<p>Find me in app/views/user/users/edit.html.erb</p>
+<h1>user edit</h1>
+
+<h1>New song</h1>
+  <%= form_with model: @user do |f| %>
+  
+    <h4>name</h4>
+      <%= f.text_field :name %>
+      
+    <h4>email</h4>
+      <%= f.text_field :email %>
+      
+    <%= f.submit '投稿' %>
+  <% end %>

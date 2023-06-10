@@ -1,9 +1,25 @@
-<h1>自分が投稿した楽曲一覧</h1>
+<h1>My songs</h1>
 
 <% @song.each do |song| %>
 
-<%= link_to song_path(song.id) do %>
-<%= song.name %>
-<% end %>
+
+
+<table border="3">
+  <tr>
+    <th>title</th>
+    <td><%= link_to song_path(song.id) do %><%= song.name %><% end %></td>
+    
+  </tr>
+  <tr>
+    <th>status</th>
+    <td><%= song.is_opened %></td>
+  </tr>
+</table>
+
+
+
 
 <% end %>
+
+
+

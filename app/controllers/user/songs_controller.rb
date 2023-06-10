@@ -8,14 +8,18 @@ class User::SongsController < ApplicationController
     @song = Song.new(song_params)
     @song.user = current_user
     @song.save
-    #byebug
+
     redirect_to song_path(@song)
   end
 
   def edit
+    @song =  Song.find(params[:id])
   end
 
   def update
+    @song = Song.find(params[:id])
+    @song.update(song_params)
+    redirect_to song_path(@song)  
   end
 
   def show
@@ -27,7 +31,7 @@ class User::SongsController < ApplicationController
   def index
     
     @user = current_user
-    @song = Song.all
+    @song = @user.songs
     
   end
 

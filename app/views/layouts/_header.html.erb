@@ -1,79 +1,73 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #EEEEEE;">
     <div class="container">
-      <!--<a class="navbar-brand" href="/"><%#= image_tag 'logo.png' , size: '200x40' %></a>-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+      <a class="nes-text is-disabled" href="/">Chord Sharing</a>
+      <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
+      <!--  <span class="navbar-toggler-icon"></span>-->
+      <!--</button>-->
+      <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
+      <!--  <ul class="navbar-nav ml-auto">-->
 
 
       <% if admin_signed_in? %> <!--adminログイン状態の際に、表示したいheaderのメニューを記載-->
 
-      <li>
       <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary' do %>
       管理者ログアウト
       <% end %>
-      </li>
 
       <% elsif user_signed_in? %> <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
 
       <%= link_to root_path,class: 'nes-btn' do %>
       top page
       <% end %>
-      </li>
 
-
-      
       <%= link_to new_song_path,class: 'nes-btn' do %>
-      make song
+      new song
       <% end %>
-      
 
-      
       <%= link_to songs_path,class: 'nes-btn' do %>
-      your songs
+      my songs
       <% end %>
-      
 
-      
+      <%= link_to user_path(current_user.id),class: 'nes-btn' do %>
+      my page
+      <% end %>
+
       <%= link_to destroy_user_session_path, method: :delete, class: 'nes-btn is-error' do %>
       log out
       <% end %>
-      
+
 
       <% else %> <!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
 
-
       <li>
-      <%= link_to root_path,class: 'nav-link text-secondary' do %>
-      トップページ
+      <%= link_to root_path,class: 'nes-btn' do %>
+      top page
       <% end %>
       </li>
 
       <li>
-      <%= link_to about_path,class: 'nav-link text-secondary' do %>
-      アバウトページ
+      <%= link_to about_path,class: 'nes-btn' do %>
+      about page
       <% end %>
       </li>
 
       <li>
-      <%= link_to new_user_registration_path,class: 'nav-link text-secondary' do %>
-      会員登録
+      <%= link_to new_user_registration_path,class: 'nes-btn' do %>
+      sign up
       <% end %>
       </li>
 
       <li>
-      <%= link_to new_user_session_path,class: 'nav-link text-secondary' do %>
-      会員ログイン
+      <%= link_to new_user_session_path,class: 'nes-btn' do %>
+      sign in
       <% end %>
       </li>
 
       <% end %>
 
-        </ul>
-      </div>
+      <!--  </ul>-->
+      <!--</div>-->
     </div>
   </nav>
 </header>

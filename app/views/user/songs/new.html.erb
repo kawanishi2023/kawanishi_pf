@@ -1,33 +1,33 @@
 
-<h1>楽曲投稿フォーム</h1>
+<h1>New song</h1>
   <%= form_with model: @song do |f| %>
   
-    <h4>曲名</h4>
+    <h4>title</h4>
       <%= f.text_field :name %>
       
-    <h4>アーティスト名</h4>
+    <h4>artist</h4>
       <%= f.text_field :artist %>
       
-    <h4>チューニング</h4>
+    <h4>tuning</h4>
       <%= f.text_field :tuning %>
       
-    <h4>Capo位置</h4>
+    <h4>Capo</h4>
       <%= f.text_field :capo %>
       
     <h4>BPM</h4>
       <%= f.text_field :bpm %>
       
-    <h4>主音</h4>
+    <h4>tonic</h4>
       <%= f.text_field :tonic %>
       
-    <h4>コード進行（歌詞含む）</h4>
+    <h4>chord&lyric</h4>
       <%= f.text_area :chord %>
       
-    <h4>公開ステータス</h4>  
-    <%= f.radio_button :is_opened, false, checked:false %>非公開
-    <%= f.radio_button :is_opened, true %>公開
+    <h4>status</h4>  
+    <%= f.radio_button :is_opened, false, checked:false %>close
+    <%= f.radio_button :is_opened, true %>open
     
-    <h4>合言葉　※ゲスト会員が公開楽曲を閲覧する際に使用します。</h4>
+    <h4>secret_word</h4>
     <%= f.text_field :secret_word %>
       
     <%= f.submit '投稿' %>
