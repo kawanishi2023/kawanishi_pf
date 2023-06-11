@@ -1,5 +1,5 @@
 
-# <Chord Sharing>
+# <Be Chords>
 
 ## サイト概要
 ### サイトテーマ  

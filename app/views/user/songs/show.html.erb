@@ -27,3 +27,18 @@
 <%= link_to "Destroy", song_path(@song.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
 <% end %>
 </td>
+
+<div>
+  <p>コメント件数：<%= @song.comments.count %></p>
+  <% @song.comments.each do |comment| %>
+    <%= comment.user.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.name %><%= comment.comment %>
+  <% end %>
+</div>
+<div>
+  <%= form_with model: [@song, @comment] do |f| %>
+    <%= f.text_field :name, rows: '5', placeholder: "名前をここに" %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>

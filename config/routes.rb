@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   
   scope module: :user do
     resources :users, only: [:show, :edit, :update]
-    resources :songs, only: [:new, :create, :edit, :update, :show, :index, :destroy]
+    resources :songs, only: [:new, :create, :edit, :update, :show, :index, :destroy] do
+      resources :comments, only: [:create]
+    end
     resources :opinions, only: [:new, :create]
   end
   

@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2023_06_06_074010) do
     t.string "name"
     t.text "comment"
     t.boolean "is_deleted", default: false
+    t.integer "song_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
