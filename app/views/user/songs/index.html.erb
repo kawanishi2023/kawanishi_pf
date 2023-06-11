@@ -1,8 +1,12 @@
 <h1>My songs</h1>
 
-<% @song.each do |song| %>
 
 
+<div class="container">
+<div class="row">
+<div class="col-6">
+<h1>非公開</h1>
+<% @close_songs.each do |song| %>
 
 <table border="3">
   <tr>
@@ -15,16 +19,41 @@
     <td><%= song.is_opened %></td>
   </tr>
   
-  <!--<tr>-->
-  <!--  <th>status</th>-->
-  <!--  <td><%#= link_to "#{song.comments.count} コメント", song_path(song.id) %></td>-->
-  <!--</tr>-->
+  <tr>
+    <th>comment</th>
+    <td><%= link_to "#{song.comments.count} コメント", song_path(song.id) %></td>
+  </tr>
 </table>
-
-
-
-
 <% end %>
+</div>
+
+
+
+
+
+<div class="col-6">
+<h1>公開</h1>
+<% @open_songs.each do |song| %>
+
+<table border="3">
+  <tr>
+    <th>title</th>
+    <td><%= link_to song_path(song.id) do %><%= song.name %><% end %></td>
+    
+  </tr>
+  <tr>
+    <th>status</th>
+    <td><%= song.is_opened %></td>
+  </tr>
+  
+  <tr>
+    <th>status</th>
+    <td><%= link_to "#{song.comments.count} コメント", song_path(song.id) %></td>
+  </tr>
+</table>
+<% end %>
+</div>
+
 
 
 

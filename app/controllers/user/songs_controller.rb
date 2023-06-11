@@ -30,10 +30,9 @@ class User::SongsController < ApplicationController
   end
 
   def index
-    
     @user = current_user
-    @song = @user.songs
-    
+    @open_songs = @user.songs.where(is_opened: true)
+    @close_songs = @user.songs.where(is_opened: false)
   end
 
   def destroy
