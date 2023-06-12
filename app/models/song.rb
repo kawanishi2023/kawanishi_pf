@@ -6,4 +6,8 @@ class Song < ApplicationRecord
     
   has_one_attached :sound_date
   
+  def self.looks(word)
+      @song = Song.where("secret_word LIKE?","#{word}")
+  end
+  
 end

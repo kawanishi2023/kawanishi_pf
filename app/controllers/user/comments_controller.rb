@@ -7,6 +7,12 @@ class User::CommentsController < ApplicationController
     @comment.save
     redirect_to song_path(@song)
   end
+  
+  def destroy
+    @song = Song.find(params[:song_id])
+    @song.comments.find(params[:id]).destroy
+    redirect_to song_path(params[:song_id])
+  end
 
   private
 

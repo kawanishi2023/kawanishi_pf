@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Be Chords</title>
+    <title>BeChords</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
 
     <!--↓ fontawesome用 ↓-->
-    <script src="https://kit.fontawesome.com/7dc7d3c10f.js" crossorigin="anonymous"></script> 
+    <script src="https://kit.fontawesome.com/7dc7d3c10f.js" crossorigin="anonymous"></script>
     <!--↑ fontawesome用 ↑-->
-    
-     <!--minify -->
-    <!--<link href="https://unpkg.com/nes.css@0.0.2/css/nes.min.css" rel="stylesheet" />-->
-     <!--latest -->
-    <!--<link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />-->
-    
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
   </head>
 
-  <body>
- 
-    
-    <header>
+  <body class="d-flex flex-column min-vh-100">
+
+<!--ヘッダー-->
     <%= render 'layouts/header' %>
-    </header>
-    
+
+
     <main>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+   <div class="container">
     <%= yield %>
+   </div>
+   </div>
     </main>
-    
-    <footer class="footer">
+
+<!--フッター-->
     <%= render 'layouts/footer' %>
-    </footer>
-    
+
+
   </body>
 </html>

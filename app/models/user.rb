@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy       
   has_many :songs, dependent: :destroy
   has_many :opinions, dependent: :destroy
+  
+  
          
 end

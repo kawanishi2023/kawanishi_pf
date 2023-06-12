@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
   root to: "homes#top"
-  get '/about' => 'homes#about'
+  get 'about' => 'homes#about'
+  get 'search' => 'searches#search'
   
   # devise_for :admins
   # devise_for :users
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   scope module: :user do
     resources :users, only: [:show, :edit, :update]
     resources :songs, only: [:new, :create, :edit, :update, :show, :index, :destroy] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
     end
     resources :opinions, only: [:new, :create]
   end

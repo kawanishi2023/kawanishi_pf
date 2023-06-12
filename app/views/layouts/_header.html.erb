@@ -1,73 +1,80 @@
+
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #EEEEEE;">
-    <!--<div class="container">-->
-      <a class="nes-text is-disabled" href="/">Be Chords</a>
-      <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
-      <!--  <span class="navbar-toggler-icon"></span>-->
-      <!--</button>-->
-      <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
-      <!--  <ul class="navbar-nav ml-auto">-->
+  <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #FFFFFF;">
+    <div class="container">
+      <a class="navbar-brand" href="/"><%= image_tag 'logo.png' , size: '125x58' %></a>
+      <!--ハンバーガーメニューの設定-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
 
 
       <% if admin_signed_in? %> <!--adminログイン状態の際に、表示したいheaderのメニューを記載-->
-
+      <li class="nav-item">
       <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary' do %>
       管理者ログアウト
       <% end %>
+      </li>
 
       <% elsif user_signed_in? %> <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
-
-      <%= link_to root_path,class: 'nes-btn' do %>
-      top page
+      
+      <li class="nav-item">
+      <%= link_to new_song_path,class: 'nav-link' do %>
+      New song
       <% end %>
-
-      <%= link_to new_song_path,class: 'nes-btn' do %>
-      new song
+      </li>
+      
+      <li class="nav-item">
+      <%= link_to songs_path,class: 'nav-link' do %>
+      My songs
       <% end %>
-
-      <%= link_to songs_path,class: 'nes-btn' do %>
-      my songs
+      </li>
+      
+      <li class="nav-item">
+      <%= link_to user_path(current_user.id),class: 'nav-link' do %>
+      My page
       <% end %>
-
-      <%= link_to user_path(current_user.id),class: 'nes-btn' do %>
-      my page
+      </li>
+      
+      <li class="nav-item">
+      <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+      Log out
       <% end %>
-
-      <%= link_to destroy_user_session_path, method: :delete, class: 'nes-btn is-error' do %>
-      log out
-      <% end %>
-
-
+      </li>
+      
       <% else %> <!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
 
-      <li>
-      <%= link_to root_path,class: 'nes-btn' do %>
-      top page
+      <li class="nav-item">
+      <%= link_to root_path,class: 'nav-link' do %>
+      Top
       <% end %>
       </li>
 
-      <li>
-      <%= link_to about_path,class: 'nes-btn' do %>
-      about page
+      <li class="nav-item">
+      <%= link_to about_path,class: 'nav-link' do %>
+      About
       <% end %>
       </li>
 
-      <li>
-      <%= link_to new_user_registration_path,class: 'nes-btn' do %>
-      sign up
+      <li class="nav-item">
+      <%= link_to new_user_registration_path,class: 'nav-link' do %>
+      Sign up
       <% end %>
       </li>
 
-      <li>
-      <%= link_to new_user_session_path,class: 'nes-btn' do %>
-      sign in
+      <li class="nav-item">
+      <%= link_to new_user_session_path,class: 'nav-link' do %>
+      Sign in
       <% end %>
       </li>
 
       <% end %>
 
-      <!--  </ul>-->
-      <!--</div>-->
+        </ul>
+      </div>
     </div>
   </nav>
 </header>
