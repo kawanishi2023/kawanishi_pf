@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   }
   
   scope module: :user do
+    patch 'users/:id/withdrawal' => 'users#withdrawal', as: 'user_withdrawal'
     resources :users, only: [:show, :edit, :update]
     resources :songs, only: [:new, :create, :edit, :update, :show, :index, :destroy] do
       resources :comments, only: [:create, :destroy]
@@ -30,9 +31,9 @@ Rails.application.routes.draw do
   
   scope module: :admin do
     get 'admins/:id/confirm' => 'admins#confirm', as: 'confirm'
-    patch 'admins/:id/withdrawal' => 'admins#withdrawal', as: 'withdrawal'
-    resources :admins, only: [:index]
-    resources :genres, only: [:new, :create, :index, :destroy]
+    patch 'admins/:id/withdrawal' => 'admins#withdrawal', as: 'admin_withdrawal'
+    resources :admins, only: [:index, :update, :edit]
+    resources :genres, only: [:create, :index, :destroy]
     resources :opinions, only: [:index]
   end
   

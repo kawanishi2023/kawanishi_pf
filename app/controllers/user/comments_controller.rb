@@ -9,8 +9,7 @@ class User::CommentsController < ApplicationController
   end
   
   def destroy
-    @song = Song.find(params[:song_id])
-    @song.comments.find(params[:id]).destroy
+    Comment.find(params[:id]).destroy
     redirect_to song_path(params[:song_id])
   end
 
