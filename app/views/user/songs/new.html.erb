@@ -7,6 +7,9 @@
       
     <h4>artist</h4>
       <%= f.text_field :artist %>
+    
+    <h4>Genre</h4>
+     <%= f.select :genre_id, options_from_collection_for_select(@genre, :id, :name, @song.genre_id), { include_blank: "--選択してください--" } %></div>
       
     <h4>tuning</h4>
       <%= f.text_field :tuning %>

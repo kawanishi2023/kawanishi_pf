@@ -3,13 +3,13 @@ class User::SongsController < ApplicationController
 
   def new
     @song = Song.new
+    @genre = Genre.all
   end
 
   def create
     @song = Song.new(song_params)
     @song.user = current_user
     @song.save
-
     redirect_to song_path(@song)
   end
 
@@ -45,7 +45,7 @@ class User::SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:name, :artist, :tuning, :capo, :bpm, :tonic, :chord, :secret_word, :is_opened)
+    params.require(:song).permit(:name, :genre_id, :artist, :tuning, :capo, :bpm, :tonic, :chord, :secret_word, :is_opened)
   end
 
 end

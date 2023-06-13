@@ -6,6 +6,9 @@ class CreateSongs < ActiveRecord::Migration[6.1]
       #↓手動で追加↓#
       
       t.integer :user_id
+      
+      t.integer :genre_id
+      
       ## 曲名を保存するカラム
       t.string :name
       ## アーティストを保存するカラム

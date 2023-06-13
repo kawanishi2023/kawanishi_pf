@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get 'about' => 'homes#about'
   get 'search' => 'searches#search'
+  get 'guest_search' => 'homes#guest_search'
   
   # devise_for :admins
   # devise_for :users
@@ -30,8 +31,8 @@ Rails.application.routes.draw do
   end
   
   scope module: :admin do
-    get 'admins/:id/confirm' => 'admins#confirm', as: 'confirm'
-    patch 'admins/:id/withdrawal' => 'admins#withdrawal', as: 'admin_withdrawal'
+    # get 'admins/:id/confirm' => 'admins#confirm', as: 'confirm'
+    # patch 'admins/:id/withdrawal' => 'admins#withdrawal', as: 'admin_withdrawal'
     resources :admins, only: [:index, :update, :edit]
     resources :genres, only: [:create, :index, :destroy]
     resources :opinions, only: [:index]

@@ -4,4 +4,7 @@ class HomesController < ApplicationController
 
   def about
   end
+  
+  def guest_search
+  end
 end
