@@ -1,37 +1,42 @@
 
-<h1>New song</h1>
+
+<h1>新規曲投稿</h1>
+
+<table class="table table-hover table-inverse">
   <%= form_with model: @song do |f| %>
   
-    <h4>title</h4>
-      <%= f.text_field :name %>
+    <h4>公開ステータス</h4>  
+    <%= f.radio_button :is_opened, false, checked:false %>非公開
+    <%= f.radio_button :is_opened, true %>公開
+  
+    <h4>曲名</h4>
+      <%= f.text_field :name, placeholder: "曲名" %>
       
-    <h4>artist</h4>
-      <%= f.text_field :artist %>
+    <h4>アーティスト</h4>
+      <%= f.text_field :artist, placeholder: "アーティスト" %>
     
-    <h4>Genre</h4>
-     <%= f.select :genre_id, options_from_collection_for_select(@genre, :id, :name, @song.genre_id), { include_blank: "--選択してください--" } %></div>
+    <h4>ジャンル</h4>
+     <%= f.select :genre_id, options_from_collection_for_select(@genre, :id, :name, @song.genre_id), { include_blank: "--選択してください--" } %>
       
-    <h4>tuning</h4>
-      <%= f.text_field :tuning %>
+    <h4>チューニング</h4>
+      <%= f.text_field :tuning, placeholder: "チューニング" %>
       
     <h4>Capo</h4>
-      <%= f.text_field :capo %>
+      <%= f.text_field :capo, placeholder: "Capo" %>
       
     <h4>BPM</h4>
-      <%= f.text_field :bpm %>
+      <%= f.text_field :bpm, placeholder: "BPM" %>
       
-    <h4>tonic</h4>
-      <%= f.text_field :tonic %>
-      
-    <h4>chord&lyric</h4>
-      <%= f.text_area :chord %>
-      
-    <h4>status</h4>  
-    <%= f.radio_button :is_opened, false, checked:false %>close
-    <%= f.radio_button :is_opened, true %>open
+    <h4>キー</h4>
+      <%= f.text_field :tonic, placeholder: "曲のキー" %>
     
-    <h4>secret_word</h4>
-    <%= f.text_field :secret_word %>
+    <h4>合言葉</h4>
+    <%= f.text_field :secret_word, placeholder: "合言葉" %>
       
+    <h4>コード進行/歌詞</h4>
+      <%= f.text_area :chord ,size: "100x50", placeholder: "コード進行" %>
+    
     <%= f.submit '投稿' %>
   <% end %>
+  
+  </table>

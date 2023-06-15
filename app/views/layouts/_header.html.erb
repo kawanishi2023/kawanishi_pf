@@ -13,19 +13,19 @@
 
 
       <% if admin_signed_in? %> <!--adminログイン状態の際に、表示したいheaderのメニューを記載-->
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to admins_path,class: 'nav-link' do %>
       Member
       <% end %>
       </li>
       
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to genres_path,class: 'nav-link' do %>
       Genre
       <% end %>
       </li>
       
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary' do %>
       Log out
       <% end %>
@@ -33,25 +33,25 @@
       
       <% elsif user_signed_in? %> <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
       
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to new_song_path,class: 'nav-link' do %>
       New song
       <% end %>
       </li>
       
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to songs_path,class: 'nav-link' do %>
       My songs
       <% end %>
       </li>
       
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to user_path(current_user.id),class: 'nav-link' do %>
       My page
       <% end %>
       </li>
       
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
       Log out
       <% end %>
@@ -59,25 +59,25 @@
       
       <% else %> <!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
 
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to root_path,class: 'nav-link' do %>
       Top
       <% end %>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to about_path,class: 'nav-link' do %>
       About
       <% end %>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to new_user_registration_path,class: 'nav-link' do %>
       Sign up
       <% end %>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item css_font">
       <%= link_to new_user_session_path,class: 'nav-link' do %>
       Sign in
       <% end %>

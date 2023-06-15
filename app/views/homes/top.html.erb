@@ -8,10 +8,14 @@
 <% elsif user_signed_in? %> 
 <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
 
+ <p class="text-right css_font">
+ <%= link_to guest_search_path,class: 'text-secondary' do %>合言葉お持ちの方はこちら>>︎<% end %>
+ </p>
+
  <% else %> 
 <!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
 
- <p class="text-right">
+ <p class="text-right css_font">
  <%= link_to guest_search_path,class: 'text-secondary' do %>合言葉お持ちの方はこちら>>︎<% end %>
  </p>
 

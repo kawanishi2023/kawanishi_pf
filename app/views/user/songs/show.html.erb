@@ -1,47 +1,107 @@
-<h1>Song detail</h1>
+<h1 class="css_font">楽曲詳細</h1>
+
+<table class="table css_font" width="auto">
+
+<thead class="table-dark">
+<tr>
+  <th>アーティスト名</th>
+  <th>チューニング</th>
+  <th>BPM</th>
+  <th>主音</th>
+  <th>合言葉</th>
+  <th>公開ステータス</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+  <td><%= @song.artist %></td>
+  <td><%= @song.tuning %></td>
+  <td><%= @song.bpm %></td>
+  <td><%= @song.tonic %></td>
+  <td><%= @song.secret_word %></td>
+  <td><% if @song.is_opened == false %>
+      非公開
+      <% elsif %>
+      公開
+      <% end %>
+  </td>
+</tr>
+</tbody>
+
+<table class="table css_font" width="auto">
+
+<thead class="table-dark">
+<tr>
+<th>コード進行 / 歌詞</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<th><%=simple_format( @song.chord.gsub(" ","&ensp;") ) %></th>
+</tr>
+</tbody>
+</table>
 
 
-<%= @song.name %>
-<%= @song.artist %>
-<%= @song.tuning %>
-<%= @song.capo %>
-<%= @song.bpm %>
-<%= @song.tonic %>
-<%= @song.chord %>
-<%= @song.secret_word %>
-<% if @song.is_opened == false %>
-非公開
-<% elsif %>
-公開
-<% end %>
 
 
-<td>
+<table class="table css_font">
+<th>
 <% if @song.user == current_user %>
-<%= link_to "Edit", edit_song_path(@song.id)  %>
+<%= link_to "楽曲を編集する", edit_song_path(@song.id)  %>
+<% end %>
+</th>
+
+<th>
+<% if @song.user == current_user %>
+<%= link_to "楽曲を削除する", song_path(@song.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+<% end %>
+</th>
+</table>
+
+
+
+<!--ログインしている場合のみコメント機能を使える仕様-->
+<% if user_signed_in? %>
+
+<table class="table  css_font">
+<thead class="table-dark">
+<th>コメント件数：<%= @song.comments.count %></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</thead>
+
+<% @song.comments.each do |comment| %>
+<tr>
+<td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+<td><%= comment.name %></td>
+<td><%= comment.comment %></td>
+<td>
+<% if comment.user == current_user %>
+<%= link_to "削除", song_comment_path(comment.song, comment), method: :delete %>
 <% end %>
 </td>
-
-<td>
-<% if @song.user == current_user %>
-<%= link_to "Destroy", song_path(@song.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+</tr>
 <% end %>
-</td>
+</table>
 
-<div>
-  <p>コメント件数：<%= @song.comments.count %></p>
-  <% @song.comments.each do |comment| %>
-    <%= comment.user.name %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.name %><%= comment.comment %>
-    <% if comment.user == current_user %>
-    <%= link_to "削除", song_comment_path(comment.song, comment), method: :delete %>
-    <% end %>
-  <% end %>
-</div>
-<div>
-  <%= form_with model: [@song, @comment] do |f| %>
-    <%= f.text_field :name, rows: '5', placeholder: "名前をここに" %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
-</div>
+<center>
+<table class="table  css_font">
+<%= form_with model: [@song, @comment] do |f| %>
+<thead>
+<td><%= f.text_field :name, placeholder: "名前",:size=>"60" %></td>
+<td></td>
+</thead>
+<tbody>
+<td><%= f.text_area :comment, placeholder: "コメント",:size=>"60" %></td>
+<td><%= f.submit "コメントを書き込む" %></td>
+</tbody>
+<% end %>
+</table>
+</center>
+
+<% end %>

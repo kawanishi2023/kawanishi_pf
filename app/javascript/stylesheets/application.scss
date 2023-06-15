@@ -1,16 +1,12 @@
 @use '~bootstrap/scss/bootstrap';
 
-// @font-face {
-//   font-family: "TanukiMagic";
-//   src: asset-url('/fonts/TanukiMagic.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
 
-.li {
-  font-family: 'M PLUS Rounded 1c';
+
+
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+ 
+.css_font {
+    font-family: 'Zen Kurenaido', sans-serif;
 }
 
-.p {
-  font-family: 'M+PLUS+Rounded+1c';
-}
+

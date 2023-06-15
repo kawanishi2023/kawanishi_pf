@@ -1,5 +1,5 @@
 class User::SongsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   def new
     @song = Song.new

@@ -30,14 +30,14 @@
           <th colspan="1"></th>
         </tr>
       </thead>
-  
+  <% @genres.each do |genre| %>
       <tbody>
         <tr>
-        <% @genres.each do |genre| %>
           <td class="align-middle"><%= genre.name %></td>
-        <% end %>
+          <td><%=link_to "ジャンル編集", edit_genre_path(genre.id) %></td>
         </tr>
       </tbody>
+      <% end %>
         
     </table>
   </div>
