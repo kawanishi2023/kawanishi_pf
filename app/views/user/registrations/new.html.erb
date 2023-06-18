@@ -1,21 +1,21 @@
 <%= flash[:notice] %>
-<h2>会員登録画面</h2>
+<h2 class="css_font">会員登録画面</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "user/shared/error_messages", resource: resource %>
 
   <!--会員登録の際に名前を追加-->
-  <div class="field">
+  <div class="field css_font">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
+  <div class="field css_font">
+    <%= f.label :email %><br/>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div class="field css_font">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -23,12 +23,12 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="field css_font">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
+  <div class="actions css_font">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>

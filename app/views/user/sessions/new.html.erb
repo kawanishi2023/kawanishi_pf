@@ -1,25 +1,25 @@
-<%= flash[:notice] %>
-<h2>会員ログイン画面</h2>
+<div class="css_font"><%= flash[:notice] %><div>
+<h2 class="css_font">会員ログイン画面</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field css_font">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div class="field css_font">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
+    <div class="field css_font">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class="actions css_font">
     <%= f.submit "Log in" %>
   </div>
 <% end %>
@@ -27,5 +27,5 @@
 <%= render "user/shared/links" %>
 
 <%= link_to new_admin_session_path,class: 'nav-link text-secondary' do %>
-管理者ログインはこちら
+>>管理者ログインはこちら
 <% end %>

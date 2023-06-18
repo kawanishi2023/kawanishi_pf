@@ -1,42 +1,42 @@
-
-
-<h1>新規曲投稿</h1>
+<h1 class="css_font">新規曲投稿</h1>
 
 <table class="table table-hover table-inverse">
+  <div class="css_font">
   <%= form_with model: @song do |f| %>
   
-    <h4>公開ステータス</h4>  
+    <h4 class="css_font">公開ステータス</h4>  
     <%= f.radio_button :is_opened, false, checked:false %>非公開
     <%= f.radio_button :is_opened, true %>公開
   
-    <h4>曲名</h4>
+    <h4 class="css_font">曲名</h4>
       <%= f.text_field :name, placeholder: "曲名" %>
       
-    <h4>アーティスト</h4>
+    <h4 class="css_font">アーティスト</h4>
       <%= f.text_field :artist, placeholder: "アーティスト" %>
     
-    <h4>ジャンル</h4>
+    <h4 class="css_font">ジャンル</h4>
      <%= f.select :genre_id, options_from_collection_for_select(@genre, :id, :name, @song.genre_id), { include_blank: "--選択してください--" } %>
       
-    <h4>チューニング</h4>
+    <h4 class="css_font">チューニング</h4>
       <%= f.text_field :tuning, placeholder: "チューニング" %>
       
-    <h4>Capo</h4>
+    <h4 class="css_font">Capo</h4>
       <%= f.text_field :capo, placeholder: "Capo" %>
       
-    <h4>BPM</h4>
+    <h4 class="css_font">BPM</h4>
       <%= f.text_field :bpm, placeholder: "BPM" %>
       
-    <h4>キー</h4>
+    <h4 class="css_font">キー</h4>
       <%= f.text_field :tonic, placeholder: "曲のキー" %>
     
-    <h4>合言葉</h4>
+    <h4 class="css_font">合言葉</h4>
     <%= f.text_field :secret_word, placeholder: "合言葉" %>
       
-    <h4>コード進行/歌詞</h4>
+    <h4 class="css_font">コード進行/歌詞</h4>
       <%= f.text_area :chord ,size: "100x50", placeholder: "コード進行" %>
     
     <%= f.submit '投稿' %>
   <% end %>
   
+  </div>
   </table>
