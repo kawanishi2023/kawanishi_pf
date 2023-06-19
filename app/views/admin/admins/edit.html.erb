@@ -1,44 +1,28 @@
-<div class="container">
-  <div class="row justify-content-center mt-3">
-    <h3 class="border-bottom border-gray">
-     <%= @user.name%>さんの会員情報編集
-    </h3>
+
+<!--アドミンページ会員一覧の編集-->
+
+<div class="row my-3 user_list">
+  <div class="col-4"></div>
+    <div class="col-4 css_font">
+    <h3 class="css_font title my-3"><%= @user.name%>さんの会員情報編集</h3>
+    <%= form_with model: @user, url: admin_path(@user.id) do |f| %>
+    <div class="my-2">
+      <%= f.label :ユーザー名 %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="my-2">
+      <%= f.label :メールアドレス %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="my-3">
+      <%= f.label :会員ステータス %><br>
+      <%= f.radio_button :is_deleted, false %>
+      有効ユーザー
+      <%= f.radio_button :is_deleted, true %>
+      退会ユーザー
+    </div>
+    <%= f.submit '変更を保存',class: 'btn btn-outline-secondary' %>
+    <% end %>
   </div>
-  
-  <%= form_with model: @user, url: admin_path(@user.id) do |f| %>
-    <div class="row mt-2">
-      <div class="mx-auto">
-        <table>
-          <tr>
-            <td>会員ID</td>
-            <td style="padding-bottom: 10px;"><%= @user.id %></td>
-            <td style="padding-bottom: 10px;"></td>
-          </tr>
-          <tr>
-            <td>ユーザー名</td>
-            <td style="padding-bottom: 10px;"><%= f.text_field :name %></td>
-          </tr>
-          <tr>
-            <td style="padding-bottom: 10px;">メールアドレス</td>
-            <td style="padding-bottom: 10px;"><%= f.text_field :email %></td>
-            <td style="padding-bottom: 10px;"></td>
-          </tr>
-          <tr>
-            <td style="padding-bottom: 10px; padding-right: 40px;">会員ステータス</td>
-            <td style="padding-bottom: 10px;">
-              <%= f.radio_button :is_deleted, false, checked:false %>
-              有効ユーザー
-              <%= f.radio_button :is_deleted, true %>
-              退会ユーザー
-            </td>
-            <td style="padding-bottom: 10px;"></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    
-    <div class="row justify-content-center mb-3">
-      <%= f.submit '変更を保存',class: 'btn btn-success' %>
-    </div>
-  <% end %>
+  <div class="col-4"></div>
 </div>

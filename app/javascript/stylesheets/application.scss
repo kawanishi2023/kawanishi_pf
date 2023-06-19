@@ -4,15 +4,26 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
- 
+
 .css_font {
     font-family: 'Zen Kurenaido', sans-serif;
 }
 
-.css_backcolor1{
-    background-color:DDE6ED;
+
+
+.signinpage input:not([type="checkbox"]){
+  width: 100%;
 }
 
-.css_backcolor2{
-    background-color:色指定;
+.signuppage input:not([type="checkbox"]){
+  width: 100%;
+}
+
+.title{
+  text-align: center;
+  text-decoration: underline;
+}
+
+.user_list input:not([type="radio"]) {
+  width: 100%;
 }

@@ -11,15 +11,15 @@
 <table border="3" width="100%">
 <tr>
 <th class="css_font" width="25%">曲名</th>
-<td class="css_font" width="75%"><%= link_to song_path(song.id) do %><%= song.name %><% end %></td>
+<td class="css_font" width="75%"><%= link_to song_path(song.id),class: 'text-secondary' do %><%= song.name %><% end %></td>
 </tr>
 <tr>
 <th class="css_font" width="25%">公開ステータス</th>
 <td class="css_font" width="75%">
 <% if song.is_opened == false %>
-非公開
+<b class="text-danger css_font">非公開</b>
 <% elsif %>
-公開
+<b class="text-success css_font">公開</b>
 <% end %>
 </td>
 </tr>
@@ -34,15 +34,15 @@
 <table border="3" width="100%">
 <tr>
 <th class="css_font" width="25%">曲名</th>
-<td class="css_font" width="75%"><%= link_to song_path(song.id) do %><%= song.name %><% end %></td>
+<td class="css_font" width="75%"><%= link_to song_path(song.id),class: 'text-secondary' do %><%= song.name %><% end %></td>
 </tr>
 <tr>
 <th class="css_font" width="25%">公開ステータス</th>
 <td class="css_font" width="75%">
 <% if song.is_opened == false %>
-非公開
+<b class="text-danger css_font">非公開</b>
 <% elsif %>
-公開
+<b class="text-success css_font">公開</b>
 <% end %>
 </td>
 </tr>

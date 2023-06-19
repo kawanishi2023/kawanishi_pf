@@ -5,7 +5,9 @@
 <thead class="table-dark">
 <tr>
   <th>アーティスト名</th>
+  <th>ジャンル</th>
   <th>チューニング</th>
+  <th>Capo</th>
   <th>BPM</th>
   <th>主音</th>
   <th>合言葉</th>
@@ -16,14 +18,16 @@
 <tbody>
 <tr>
   <td><%= @song.artist %></td>
+  <td><%= @song.genre.name %></td>
   <td><%= @song.tuning %></td>
+  <td><%= @song.capo %></td>
   <td><%= @song.bpm %></td>
   <td><%= @song.tonic %></td>
   <td><%= @song.secret_word %></td>
   <td><% if @song.is_opened == false %>
-      非公開
+      <b class="text-danger css_font">非公開</b>
       <% elsif %>
-      公開
+      <b class="text-success css_font">公開</b>
       <% end %>
   </td>
 </tr>

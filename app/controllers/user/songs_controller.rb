@@ -15,6 +15,7 @@ class User::SongsController < ApplicationController
 
   def edit
     @song =  Song.find(params[:id])
+    @genre = Genre.all
   end
 
   def update

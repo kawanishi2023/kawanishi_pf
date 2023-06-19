@@ -1,36 +1,37 @@
-<%= flash[:notice] %>
-<h2 class="css_font">会員登録画面</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "user/shared/error_messages", resource: resource %>
+<!--会員登録ページ-->
 
-  <!--会員登録の際に名前を追加-->
-  <div class="field css_font">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<div class="row my-3 signuppage">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <div class="css_font"><%= flash[:notice] %></div>
+    <h3 class="css_font title my-3">会員登録画面</h3>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "user/shared/error_messages", resource: resource %>
+    <div class="field css_font">
+        <%= f.label :ユーザー名 %><br>
+        <%= f.text_field :name, autofocus: true %>
+    </div>
+    <div class="field css_font">
+        <%= f.label :メールアドレス %><br/>
+        <%= f.email_field :email, autocomplete: "email" %>
+    </div>
+    <div class="field css_font">
+        <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+    <div class="field css_font">
+        <%= f.label :パスワード（確認用） %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+    <div class="actions css_font my-3">
+        <%= f.submit "登録" %>
+    </div>
+    <% end %>
+    <%#= render "user/shared/links" %>
+    <div class="col-4"></div>
   </div>
-
-  <div class="field css_font">
-    <%= f.label :email %><br/>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field css_font">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field css_font">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions css_font">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "user/shared/links" %>
+</div>

@@ -1,13 +1,14 @@
-<h1>ユーザー情報編集</h1>
+<h1 class="css_font">ユーザー情報編集</h1>
 
-<h1>New song</h1>
-  <%= form_with model: @user do |f| %>
-  
-    <h4>name</h4>
-      <%= f.text_field :name %>
-      
-    <h4>email</h4>
-      <%= f.text_field :email %>
-      
-    <%= f.submit '投稿' %>
-  <% end %>
+<div class="css_font">
+<%= form_with model: @user do |f| %>
+
+<h4 class="css_font">name</h4>
+<%= f.text_field :name %>
+
+<h4 class="css_font">email</h4>
+<%= f.text_field :email %>
+
+<%= f.submit '登録' %>
+<% end %>
+</div>

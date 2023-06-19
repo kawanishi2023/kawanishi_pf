@@ -1,6 +1,6 @@
 <h1 class="css_font">新規曲投稿</h1>
 
-<table class="table table-hover table-inverse">
+
   <div class="css_font">
   <%= form_with model: @song do |f| %>
   
@@ -33,10 +33,9 @@
     <%= f.text_field :secret_word, placeholder: "合言葉" %>
       
     <h4 class="css_font">コード進行/歌詞</h4>
-      <%= f.text_area :chord ,size: "100x50", placeholder: "コード進行" %>
+      <%= f.text_area :chord ,size: "100x50", placeholder: "コード進行/歌詞" %>
     
     <%= f.submit '投稿' %>
   <% end %>
   
   </div>
-  </table>

@@ -1,16 +1,18 @@
-<h1>ユーザー詳細</h1>
+<div class="css_font">
+<h1 class="css_font">ユーザー詳細</h1>
 
 <table>
-  <tr>
-    <th>name :</th>
-    <td><%= current_user.name %></td>
-  </tr>
-  <tr>
-    <th>email:</th>
-    <td><%= current_user.email %></td>
-  </tr>
+<tr>
+<th class="css_font">name :</th>
+<td class="css_font"><%= current_user.name %></td>
+</tr>
+<tr>
+<th class="css_font">email:</th>
+<td class="css_font"><%= current_user.email %></td>
+</tr>
 </table>
 
-<%= link_to "Edit", edit_user_path(current_user)  %>
-
-
+<%= link_to edit_user_path(current_user), class:'btn btn-outline-danger' do %>
+<i class="fas fa-user-cog"></i>会員情報編集
+<% end %>
+</div>

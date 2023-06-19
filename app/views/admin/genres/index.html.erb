@@ -1,44 +1,35 @@
-<div class="container">
-  <div class="row justify-content-center my-3">
-    <h3 class="border-bottom border-gray">ジャンル一覧・追加</h3>
-  </div>
 
-  <!--新規登録-->
-  <div class="row justify-content-lg-center">
-      <div class="mx-auto">
-        <div class="col-lg-12">
-          <%= flash[:notice] %>
-            <div class="row">
-              <div class="col text-center ">
-                <%= form_with model: @genre, method: :post, local: true do |f| %>
-                <%= f.label :name, "ジャンル名" %>
-                <%= f.text_field :name %>
-                <%= f.submit '新規登録', class: "btn btn-success" %>
-                <% end %>
-              </div>
-            </div>
-        </div>
-      </div>
-  </div>
+<!--アドミンページ ジャンル一覧、ジャンル投稿ページ-->
 
-  <!--ジャンル一覧-->
-  <div class="row pt-md-5">
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th>ジャンル</th>
-          <th colspan="1"></th>
-        </tr>
-      </thead>
-  <% @genres.each do |genre| %>
-      <tbody>
-        <tr>
-          <td class="align-middle"><%= genre.name %></td>
-          <td><%=link_to "ジャンル編集", edit_genre_path(genre.id) %></td>
-        </tr>
-      </tbody>
-      <% end %>
-        
-    </table>
-  </div>
+<div class="row justify-content-center my-3">
+<h3 class="border-bottom border-gray css_font">ジャンル一覧・追加</h3>
+</div>
+
+<!--新規登録-->
+<div class="row justify-content-center css_font">
+<%= form_with model: @genre, method: :post, local: true do |f| %>
+<%= f.label :name, "ジャンル名" %>
+<%= f.text_field :name %>
+<%= f.submit '新規登録', class:'btn btn-outline-secondary' %>
+<% end %>
+</div>
+
+<!--ジャンル一覧-->
+<div class="row pt-5">
+<table class="table">
+<thead class="thead-light">
+<tr>
+<th class="css_font" >ジャンル</th>
+<th></th>
+</tr>
+</thead>
+<% @genres.each do |genre| %>
+<tbody>
+<tr>
+<td class="align-middle css_font"><%= genre.name %></td>
+<td class="css_font"><%=link_to "ジャンル編集", edit_genre_path(genre.id), class:'btn btn-outline-secondary' %></td>
+</tr>
+</tbody>
+<% end %>
+</table>
 </div>

@@ -1,22 +1,14 @@
-<div class="container">
-  <div class="row justify-content-center my-3">
-    <h3 class="border-bottom border-gray">ジャンル編集</h3>
-  </div>
 
-  <div class="row justify-content-lg-center">
-      <div class="mx-auto">
-        <div class="col-lg-12">
-          <%= flash[:notice] %>
-          <%= form_with model: @genre, url: genre_path(@genre.id), method: :patch, local: true do |f| %>
-            <div class="row pb-md-5">
-              <div class="col text-center">
-                <%= f.label :ジャンル名 %>
-                <%= f.text_field :name %>
-                <%= f.submit '変更を保存',class: "btn btn-success" %>
-                <% end %>
-               </div>
-            </div>
-        </div>
-      </div>
-  </div>
+<!--アドミンページ ジャンル編集-->
+
+<div class="row justify-content-center my-3">
+  <h3 class="border-bottom border-gray css_font">ジャンル編集</h3>
+</div>
+
+<div class="row justify-content-center css_font">
+  <%= form_with model: @genre, url: genre_path(@genre.id), method: :patch, local: true do |f| %>
+  <%= f.label :ジャンル名 %>
+  <%= f.text_field :name %>
+  <%= f.submit '変更を保存', class:'btn btn-outline-secondary' %>
+  <% end %>
 </div>
