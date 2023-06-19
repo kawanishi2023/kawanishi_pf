@@ -1,51 +1,53 @@
-<h6>合言葉検索</h6>
-<%= render 'searches/search' %>
-
-<br>
-
-<h1>投稿楽曲一覧</h1>
+<h1 class="css_font">投稿楽曲一覧</h1>
 
 
 <div class="container">
 <div class="row">
-  
+
 <div class="col-6">
-<h1>非公開</h1>
+<h1 class="css_font">非公開</h1>
 <% @close_songs.each do |song| %>
-<table border="3">
-  <tr>
-    <th>title</th>
-    <td><%= link_to song_path(song.id) do %><%= song.name %><% end %></td>
-  </tr>
-  <tr>
-    <th>status</th>
-    <td><%= song.is_opened %></td>
-  </tr>
-  <tr>
-    <th>comment</th>
-    <td><%= link_to "#{song.comments.count} コメント", song_path(song.id) %></td>
-  </tr>
+<br>
+<table border="3" width="100%">
+<tr>
+<th class="css_font" width="25%">曲名</th>
+<td class="css_font" width="75%"><%= link_to song_path(song.id) do %><%= song.name %><% end %></td>
+</tr>
+<tr>
+<th class="css_font" width="25%">公開ステータス</th>
+<td class="css_font" width="75%">
+<% if song.is_opened == false %>
+非公開
+<% elsif %>
+公開
+<% end %>
+</td>
+</tr>
 </table>
 <% end %>
 </div>
 
 <div class="col-6">
-<h1>公開</h1>
+<h1 class="css_font">公開</h1>
 <% @open_songs.each do |song| %>
+<br>
+<table border="3" width="100%">
+<tr>
+<th class="css_font" width="25%">曲名</th>
+<td class="css_font" width="75%"><%= link_to song_path(song.id) do %><%= song.name %><% end %></td>
+</tr>
+<tr>
+<th class="css_font" width="25%">公開ステータス</th>
+<td class="css_font" width="75%">
+<% if song.is_opened == false %>
+非公開
+<% elsif %>
+公開
+<% end %>
+</td>
+</tr>
+<tr>
 
-<table border="3">
-  <tr>
-    <th>title</th>
-    <td><%= link_to song_path(song.id) do %><%= song.name %><% end %></td>
-  </tr>
-  <tr>
-    <th>status</th>
-    <td><%= song.is_opened %></td>
-  </tr>
-  <tr>
-    <th>status</th>
-    <td><%= link_to "#{song.comments.count} コメント", song_path(song.id) %></td>
-  </tr>
 </table>
 <% end %>
 </div>
