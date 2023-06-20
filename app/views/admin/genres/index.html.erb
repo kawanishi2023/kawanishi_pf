@@ -1,35 +1,42 @@
 
-<!--アドミンページ ジャンル一覧、ジャンル投稿ページ-->
+<!--アドミンページ ジャンル登録、ジャンル一覧閲覧-->
 
-<div class="row justify-content-center my-3">
-<h3 class="border-bottom border-gray css_font">ジャンル一覧・追加</h3>
-</div>
-
-<!--新規登録-->
-<div class="row justify-content-center css_font">
-<%= form_with model: @genre, method: :post, local: true do |f| %>
-<%= f.label :name, "ジャンル名" %>
-<%= f.text_field :name %>
-<%= f.submit '新規登録', class:'btn btn-outline-secondary' %>
-<% end %>
+<!--ジャンル登録-->
+<div class="row my-1">
+  <div class="col-4"></div>
+  <div class="col-4 genre_edit css_font">
+    <h3 class="css_font title">ジャンル一覧・追加</h3>
+    <div class="pt-2">
+      <%= form_with model: @genre, method: :post, local: true do |f| %>
+      <%= f.label :name, "ジャンル名" %><br>
+      <%= f.text_field :name, placeholder: "ジャンル名を入力" %><br>
+      <div class="mt-2"><%= f.submit 'ジャンル追加', class:'btn btn-outline-secondary' %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-4"></div>
 </div>
 
 <!--ジャンル一覧-->
-<div class="row pt-5">
-<table class="table">
-<thead class="thead-light">
-<tr>
-<th class="css_font" >ジャンル</th>
-<th></th>
-</tr>
-</thead>
-<% @genres.each do |genre| %>
-<tbody>
-<tr>
-<td class="align-middle css_font"><%= genre.name %></td>
-<td class="css_font"><%=link_to "ジャンル編集", edit_genre_path(genre.id), class:'btn btn-outline-secondary' %></td>
-</tr>
-</tbody>
-<% end %>
-</table>
+<div class="row mt-4">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+        <th class="css_font", align="center">ジャンル</th>
+        <th></th>
+        </tr>
+      </thead>
+      <% @genres.each do |genre| %>
+      <tbody>
+        <tr>
+        <td class="align-middle css_font ", width="50%", align="center" ><%= genre.name %></td>
+        <td class="css_font", width="50%", align="center"><%=link_to "ジャンル編集", edit_genre_path(genre.id), class:'btn btn-outline-secondary' %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-1"></div>
 </div>

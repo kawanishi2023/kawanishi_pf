@@ -10,7 +10,6 @@
 }
 
 
-
 .signinpage input:not([type="checkbox"]){
   width: 100%;
 }
@@ -25,5 +24,9 @@
 }
 
 .user_list input:not([type="radio"]) {
+  width: 100%;
+}
+
+.genre_edit input{
   width: 100%;
 }

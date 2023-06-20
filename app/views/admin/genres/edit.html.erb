@@ -1,14 +1,15 @@
 
 <!--アドミンページ ジャンル編集-->
 
-<div class="row justify-content-center my-3">
-  <h3 class="border-bottom border-gray css_font">ジャンル編集</h3>
-</div>
-
-<div class="row justify-content-center css_font">
-  <%= form_with model: @genre, url: genre_path(@genre.id), method: :patch, local: true do |f| %>
-  <%= f.label :ジャンル名 %>
-  <%= f.text_field :name %>
-  <%= f.submit '変更を保存', class:'btn btn-outline-secondary' %>
-  <% end %>
+<div class="row my-3">
+  <div class="col-4"></div>
+  <div class="col-4 css_font genre_edit">
+    <h3 class="css_font title">ジャンル編集</h3>
+    <%= form_with model: @genre, url: genre_path(@genre.id), method: :patch, local: true do |f| %>
+    <%= f.label :ジャンル名 %><br>
+    <%= f.text_field :name, placeholder: "ジャンル名を入力"  %><br>
+    <div class="pt-2"><%= f.submit '編集を保存', class:'btn btn-outline-secondary' %></div>
+    <% end %>
+  </div>
+  <div class="col-4"></div>
 </div>
