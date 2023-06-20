@@ -1,13 +1,28 @@
-<h2 class="css_font">検索結果</h2>
 
-<table class="table table-hover table-inverse">
-    <tbody>
-      <% @songs.each do |song| %>
-        <tr>
-          <td><%= song.name %></td>
-          <td><%= song.artist %></td>
-          <td><%=link_to "詳細ページへ", song_path(song.id) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-</table>
+<!--合言葉検索結果　一覧画面-->
+
+<div class="row my-3">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <h3 class="css_font title">検索結果</h3>
+    <div class="css_font my-3">
+      <table class="table table-inverse">
+        <thead class="thead-light">
+          <tr>
+            <th>曲名</th>
+            <th>アーティスト名</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @songs.each do |song| %>
+          <tr>
+            <td><%= link_to song_path(song.id), class: "text-secondary" do %><%= song.name %><% end %></td>
+            <td><%= song.artist %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-2"></div>
+</div>

@@ -5,6 +5,6 @@ class HomesController < ApplicationController
   def about
   end
   
-  def guest_search
+  def top_search
   end
 end

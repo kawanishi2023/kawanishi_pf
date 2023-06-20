@@ -1,111 +1,144 @@
-<h1 class="css_font">楽曲詳細</h1>
 
-<table class="table css_font" width="auto">
+<!--会員ページ　楽曲詳細-->
 
-<thead class="table-dark">
-<tr>
-  <th>アーティスト名</th>
-  <th>ジャンル</th>
-  <th>チューニング</th>
-  <th>Capo</th>
-  <th>BPM</th>
-  <th>主音</th>
-  <th>合言葉</th>
-  <th>公開ステータス</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-  <td><%= @song.artist %></td>
-  <td><%= @song.genre.name %></td>
-  <td><%= @song.tuning %></td>
-  <td><%= @song.capo %></td>
-  <td><%= @song.bpm %></td>
-  <td><%= @song.tonic %></td>
-  <td><%= @song.secret_word %></td>
-  <td><% if @song.is_opened == false %>
-      <b class="text-danger css_font">非公開</b>
-      <% elsif %>
-      <b class="text-success css_font">公開</b>
+<h3 class="css_font title mb-3">楽曲詳細</h3>
+<div class="row my-2">
+  <div class="col-1"></div>
+  <div class="col-10">
+<!--編集画面・削除機能アイコン-->
+    <div style="text-align: right">
+      <% if @song.user == current_user %>
+      <%= link_to edit_song_path(@song.id),class:'text-secondary' do %>
+      <i class="fa-solid fa-pen-to-square"></i>
       <% end %>
-  </td>
-</tr>
-</tbody>
+      <% end %>
+      <% if @song.user == current_user %>
+      <%= link_to song_path(@song.id), method: :delete, "data-confirm" => "本当に削除しますか？",class: 'text-secondary' do %>
+      <i class="fa-solid fa-trash"></i>
+      <% end %>
+      <% end %>
+    </div>
+    
+<!--曲名・アーティスト名-->
+    <table class="table css_font" width="auto">
+      <thead class="thead-light">
+        <tr>
+          <th class="text-center" width="33%">曲名</th>
+          <th class="text-center" width="33%">アーティスト名</th>
+          <th class="text-center" width="33%">公開ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center"><%= @song.name %></td>
+          <td class="text-center"><%= @song.artist %></td>
+          <td class="text-center"><% if @song.is_opened == false %>
+          <b class="text-danger css_font">非公開</b>
+          <% elsif %>
+          <b class="text-success css_font">公開</b>
+          <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+<!--ジャンル・チューニング・Capo・BPM・主音・合言葉・公開ステータス-->
+    <table class="table css_font" width="auto">
+      <thead class="thead-light">
+        <tr>
+          <th class="text-center" width="16.6%">ジャンル</th>
+          <th class="text-center" width="16.6%">チューニング</th>
+          <th class="text-center" width="16.6%">Capo</th>
+          <th class="text-center" width="16.6%">BPM</th>
+          <th class="text-center" width="16.6%">主音</th>
+          <th class="text-center" width="16.6%">合言葉</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center" width="16.6%"><%= @song.genre.name %></td>
+          <td class="text-center" width="16.6%"><%= @song.tuning %></td>
+          <td class="text-center" width="16.6%"><%= @song.capo %></td>
+          <td class="text-center" width="16.6%"><%= @song.bpm %></td>
+          <td class="text-center" width="16.6%"><%= @song.tonic %></td>
+          <td class="text-center" width="16.6%"><%= @song.secret_word %></td>
+        </tr>
+      </tbody>
+    </table>
+    
+<!--コード進行・歌詞-->
+    <table class="table css_font" width="auto">
+      <thead class="thead-light">
+        <tr>
+          <th>コード進行 / 歌詞</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th><%=simple_format( @song.chord.gsub(" ","&ensp;") ) %></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-1"></div>
+</div>
 
-<table class="table css_font" width="auto">
-
-<thead class="table-dark">
-<tr>
-<th>コード進行 / 歌詞</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<th><%=simple_format( @song.chord.gsub(" ","&ensp;") ) %></th>
-</tr>
-</tbody>
-</table>
-
-
-
-
-<table class="table css_font">
-<th>
-<% if @song.user == current_user %>
-<%= link_to "楽曲を編集する", edit_song_path(@song.id)  %>
-<% end %>
-</th>
-
-<th>
-<% if @song.user == current_user %>
-<%= link_to "楽曲を削除する", song_path(@song.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
-<% end %>
-</th>
-</table>
-
-
-
-<!--ログインしている場合のみコメント機能を使える仕様-->
+<!--コメント閲覧機能(ログイン時のみ使用）-->
 <% if user_signed_in? %>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10 css_font">
+    <table class="table css_font">
+      <thead class="thead-light">
+        <tr>
+          <th>コメント件数：<%= @song.comments.count %></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @song.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= comment.name %></td>
+          <td><%= comment.comment %></td>
+          <td>
+          <% if comment.user == current_user %>
+          <%= link_to "削除", song_comment_path(comment.song, comment), method: :delete,class: 'text-secondary' %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-1"></div>
+</div>
 
-<table class="table  css_font">
-<thead class="table-dark">
-<th>コメント件数：<%= @song.comments.count %></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</thead>
-
-<% @song.comments.each do |comment| %>
-<tr>
-<td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
-<td><%= comment.name %></td>
-<td><%= comment.comment %></td>
-<td>
-<% if comment.user == current_user %>
-<%= link_to "削除", song_comment_path(comment.song, comment), method: :delete %>
-<% end %>
-</td>
-</tr>
-<% end %>
-</table>
-
-<center>
-<table class="table  css_font">
-<%= form_with model: [@song, @comment] do |f| %>
-<thead>
-<td><%= f.text_field :name, placeholder: "名前",:size=>"60" %></td>
-<td></td>
-</thead>
-<tbody>
-<td><%= f.text_area :comment, placeholder: "コメント",:size=>"60" %></td>
-<td><%= f.submit "コメントを書き込む" %></td>
-</tbody>
-<% end %>
-</table>
-</center>
-
+<!--コメント機能(ログイン時のみ使用）-->
+<div class="row my-3">
+  <div class="col-1"></div>
+    <div class="col-2">
+    <div class="text-center css_font">
+      <p>コメントフォーム：</p>
+      <br>
+      <h9 class="text-danger">不適切なコメントは</h9>
+      <h9 class="text-danger">ご遠慮ください</h9>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="text-center css_font">
+      <div class="comment">
+        <%= form_with model: [@song, @comment] do |f| %>
+        <div class="mb-2"><%= f.text_field :name, placeholder: "コメント氏名" %></div>
+        <div class="mb-1"><%= f.text_area :comment, placeholder: "コメント" %></div>
+        <div><%= f.submit "コメントを書き込む" %></div>
+      <% end %>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
 <% end %>

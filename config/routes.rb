@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get 'about' => 'homes#about'
   get 'search' => 'searches#search'
-  get 'guest_search' => 'homes#guest_search'
+  get 'top_search' => 'homes#top_search'
   
   # devise_for :admins
   # devise_for :users

@@ -1,18 +1,31 @@
-<div class="css_font">
-<h1 class="css_font">ユーザー詳細</h1>
 
-<table>
-<tr>
-<th class="css_font">name :</th>
-<td class="css_font"><%= current_user.name %></td>
-</tr>
-<tr>
-<th class="css_font">email:</th>
-<td class="css_font"><%= current_user.email %></td>
-</tr>
-</table>
+<!--会員ページ　会員詳細-->
 
-<%= link_to edit_user_path(current_user), class:'btn btn-outline-danger' do %>
-<i class="fas fa-user-cog"></i>会員情報編集
-<% end %>
+<div class="row my-3">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <h3 class="css_font title">ユーザー詳細</h3>
+    <div class="py-3">
+      <div style="text-align: right">
+        <%= link_to edit_user_path(current_user),class:'text-secondary' do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+      </div>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th class="css_font">ユーザー名</th>
+            <th class="css_font">メールアドレス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="css_font"><%= current_user.name %></td>
+            <td class="css_font"><%= current_user.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-4"></div>
 </div>

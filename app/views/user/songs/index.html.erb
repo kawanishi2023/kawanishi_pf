@@ -1,55 +1,68 @@
-<h1 class="css_font">投稿楽曲一覧</h1>
 
+<!--会員ページ楽曲一覧-->
 
-<div class="container">
-<div class="row">
-
-<div class="col-6">
-<h1 class="css_font">非公開</h1>
-<% @close_songs.each do |song| %>
-<br>
-<table border="3" width="100%">
-<tr>
-<th class="css_font" width="25%">曲名</th>
-<td class="css_font" width="75%"><%= link_to song_path(song.id),class: 'text-secondary' do %><%= song.name %><% end %></td>
-</tr>
-<tr>
-<th class="css_font" width="25%">公開ステータス</th>
-<td class="css_font" width="75%">
-<% if song.is_opened == false %>
-<b class="text-danger css_font">非公開</b>
-<% elsif %>
-<b class="text-success css_font">公開</b>
-<% end %>
-</td>
-</tr>
-</table>
-<% end %>
+<div class="row text-center mt-5">
+  <div class="col-12">
+    <h3 class="css_font title">投稿楽曲一覧</h3>
+  </div>
 </div>
-
-<div class="col-6">
-<h1 class="css_font">公開</h1>
-<% @open_songs.each do |song| %>
-<br>
-<table border="3" width="100%">
-<tr>
-<th class="css_font" width="25%">曲名</th>
-<td class="css_font" width="75%"><%= link_to song_path(song.id),class: 'text-secondary' do %><%= song.name %><% end %></td>
-</tr>
-<tr>
-<th class="css_font" width="25%">公開ステータス</th>
-<td class="css_font" width="75%">
-<% if song.is_opened == false %>
-<b class="text-danger css_font">非公開</b>
-<% elsif %>
-<b class="text-success css_font">公開</b>
-<% end %>
-</td>
-</tr>
-<tr>
-
-</table>
-<% end %>
+<div class="row my-3">
+<!--非公開-->
+  <div class="col-6">
+    <h4 class="css_font text-danger">非公開</h4>
+      <table class="table" width="100%">
+        <thead class="thead-light">
+          <tr>
+            <th class="css_font">曲名</th>
+            <th class="css_font">アーティスト</th>
+            <th class="css_font">公開ステータス</th>
+          </tr>
+        </thead>
+      <% @close_songs.each do |song| %>
+        <tbody>
+          <tr>
+            <td class="css_font"><%= link_to song_path(song.id),class: 'text-secondary' do %><%= song.name %><% end %></td>
+            <td class="css_font"><%= song.artist %></td>
+            <td>
+            <% if song.is_opened == false %>
+            <b class="text-danger css_font">非公開</b>
+            <% elsif %>
+            <b class="text-success css_font">公開</b>
+            <% end %>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+      </table>
+  </div>
+<!--公開-->
+  <div class="col-6">
+    <h4 class="css_font text-success">公開</h4>
+    <table class="table" width="100%">
+      <thead class="thead-light">
+        <tr>
+          <th class="css_font">曲名</th>
+          <th class="css_font">アーティスト</th>
+          <th class="css_font">公開ステータス</th>
+        </tr>
+      </thead>
+    <% @open_songs.each do |song| %>
+    <tbody>
+      <tr>
+        <td class="css_font"><%= link_to song_path(song.id),class: 'text-secondary' do %><%= song.name %><% end %></td>
+        <td class="css_font"><%= song.artist %></td>
+        <td>
+        <% if song.is_opened == false %>
+        <b class="text-danger css_font">非公開</b>
+        <% elsif %>
+        <b class="text-success css_font">公開</b>
+        <% end %>
+        </td>
+      </tr>
+    </tbody>
+    <% end %>
+    </table>
+  </div>
 </div>
 
 

@@ -1,8 +1,5 @@
 @use '~bootstrap/scss/bootstrap';
 
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
 
 .css_font {
@@ -28,5 +25,33 @@
 }
 
 .genre_edit input{
+  width: 100%;
+}
+
+.search_form input{
+  width: 100%;
+}
+
+.song input:not([type="radio"]) {
+  width: 100%;
+}
+
+.song select {
+  width: 100%;
+}
+
+.song textarea {
+  width: 100%;
+}
+
+.comment input{
+  width: 100%;
+}
+
+.comment textarea {
+  width: 100%;
+}
+
+.user_edit input{
   width: 100%;
 }

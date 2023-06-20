@@ -1,3 +1,6 @@
+
+<!--全ページ共通-->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,35 +8,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-
-    <!--↓ fontawesome用 ↓-->
     <script src="https://kit.fontawesome.com/7dc7d3c10f.js" crossorigin="anonymous"></script>
-    <!--↑ fontawesome用 ↑-->
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   </head>
-
-  <body class="d-flex flex-column min-vh-100">
-
-<!--ヘッダー-->
-    <%= render 'layouts/header' %>
-
-
-    <main>
-   <div class="container">
-     <!--<div class="row justify-content-center my-3">-->
-    <%= yield %>
-     <!--</div>-->
-   </div>
-    </main>
-
-<!--フッター-->
-    <%= render 'layouts/footer' %>
-
-
+    <body class="d-flex flex-column min-vh-100">
+      <%= render 'layouts/header' %>
+      <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+      </main>
+      <%= render 'layouts/footer' %>
   </body>
 </html>
