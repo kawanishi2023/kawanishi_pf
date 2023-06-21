@@ -1,19 +1,48 @@
 
 <!--トップページ-->
 
-<div class="my-2">
-  <div align="center">
-  <%= image_tag 'top.png', class: "w-100" %></div>
-  <div class="mt-3">
-    <% if admin_signed_in? %> 
-    <!--管理者-->
-    <p class="text-right text-danger css_font">管理者ログイン中</p>
-    <% elsif user_signed_in? %> 
-    <!--会員-->
-    <p class="text-right css_font"><%= link_to top_search_path,class: 'text-secondary' do %>合言葉お持ちの方はこちら>>︎<% end %></p>
-    <% else %> 
-    <!--非会員-->
-    <p class="text-right css_font"><%= link_to top_search_path,class: 'text-secondary' do %>合言葉お持ちの方はこちら>>︎<% end %></p>
+<div class="row my-2">
+  <div class="col-12">
+    <div align="center"><%= image_tag 'top.png', class: "w-100" %></div>
+  </div>
+</div>
+<div class="row my-2 css_font">
+  <div class="col-3 my-4">
+    <% if admin_signed_in? %><!--管理者-->
+    <h1 class="text-center"><%= link_to about_path,class: 'text-secondary' do %>About<% end %></h1>
+    <% elsif user_signed_in? %><!--会員-->
+    <h1 class="text-center"><%= link_to about_path,class: 'text-secondary' do %>About<% end %></h1>
+    <% else %><!--非会員-->
+    <h1 class="text-center"><%= link_to about_path,class: 'text-secondary' do %>About<% end %></h1>
     <% end %>
   </div>
+  <div class="col-3 my-4">
+    <% if admin_signed_in? %><!--管理者-->
+    <h1 class="text-center"><%= link_to admins_path,class: 'text-secondary' do %>Member<% end %></h1>
+    <% elsif user_signed_in? %><!--会員-->
+    <h1 class="text-center"><%= link_to new_song_path,class: 'text-secondary' do %>New song<% end %></h1>
+    <% else %><!--非会員-->
+    <h1 class="text-center"><%= link_to new_user_registration_path,class: 'text-secondary' do %>Sign up<% end %></h1>
+    <% end %>
+  </div>
+  <div class="col-3 my-4">
+    <% if admin_signed_in? %><!--管理者-->
+    <h1 class="text-center"><%= link_to genres_path,class: 'text-secondary' do %>Genre<% end %></h1>
+    <% elsif user_signed_in? %><!--会員-->
+    <h1 class="text-center"><%= link_to songs_path,class: 'text-secondary' do %>My songs<% end %></h1>
+    <% else %><!--非会員-->
+    <h1 class="text-center"><%= link_to new_user_session_path,class: 'text-secondary' do %>Sign in<% end %></h1>
+    <% end %>
+  </div>
+  <div class="col-3 my-4">
+    <% if admin_signed_in? %><!--管理者-->
+    <h1 class="text-center"><%= link_to top_search_path,class: 'text-secondary' do %>Search<% end %></h1>
+    <% elsif user_signed_in? %><!--会員-->
+    <h1 class="text-center"><%= link_to top_search_path,class: 'text-secondary' do %>Search<% end %></h1>
+    <% else %><!--非会員-->
+    <h1 class="text-center"><%= link_to top_search_path,class: 'text-secondary' do %>Search<% end %></h1>
+    <% end %>
+  </div>
+  
+  
 </div>

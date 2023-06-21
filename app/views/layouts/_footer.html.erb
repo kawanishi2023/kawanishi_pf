@@ -3,15 +3,6 @@
 
 <footer class="footer mt-auto py-3" style="background-color: #FFFFFF;">
   <div class="container">
-    <% if admin_signed_in? %>
-    <!--管理者-->
-    <span class="nes-text is-primary css_font">Admin</span>
-    <% elsif user_signed_in? %>
-    <!--会員-->
-    <span class="nes-text is-primary css_font">Menber</span>
-    <% else %>
-    <!--非会員-->
-    <span class="nes-text is-primary css_font">Guest</span>
-    <% end %>
+    <div class="css_font text-center">© 2023 BeChords.</div>
   </div>
 </footer>
