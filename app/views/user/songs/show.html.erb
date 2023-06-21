@@ -18,7 +18,7 @@
       <% end %>
       <% end %>
     </div>
-    
+
 <!--曲名・アーティスト名-->
     <table class="table css_font" width="auto">
       <thead class="thead-light">
@@ -41,7 +41,7 @@
         </tr>
       </tbody>
     </table>
-    
+
 <!--ジャンル・チューニング・Capo・BPM・主音・合言葉・公開ステータス-->
     <table class="table css_font" width="auto">
       <thead class="thead-light">
@@ -65,7 +65,7 @@
         </tr>
       </tbody>
     </table>
-    
+
 <!--コード進行・歌詞-->
     <table class="table css_font" width="auto">
       <thead class="thead-light">
@@ -142,3 +142,27 @@
   </div>
 </div>
 <% end %>
+
+<!--自動スクロール-->
+
+<script>
+var start = false;
+$('table').on('click', function() {
+  if ( start == false ){
+    start = true;
+    $('html, body').animate(
+      { scrollTop: $('body').get(0).scrollHeight },
+      $('body').height()*30,
+      'linear',
+      function() {
+        alert('終わりました');
+      },
+    );
+  }
+  else if ( start == true ){
+    start = false;
+    $('html, body').stop();
+  }
+  return false;
+});
+</script>

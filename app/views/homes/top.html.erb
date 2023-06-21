@@ -7,42 +7,10 @@
   </div>
 </div>
 <div class="row my-2 css_font">
-  <div class="col-3 my-4">
-    <% if admin_signed_in? %><!--管理者-->
-    <h1 class="text-center"><%= link_to about_path,class: 'text-secondary' do %>About<% end %></h1>
-    <% elsif user_signed_in? %><!--会員-->
-    <h1 class="text-center"><%= link_to about_path,class: 'text-secondary' do %>About<% end %></h1>
-    <% else %><!--非会員-->
-    <h1 class="text-center"><%= link_to about_path,class: 'text-secondary' do %>About<% end %></h1>
-    <% end %>
+  <div class="col-6 my-4">
+    <h1 class="text-center"><%= link_to about_path,class: 'text-secondary' do %>What's BeChords??<% end %></h1>
   </div>
-  <div class="col-3 my-4">
-    <% if admin_signed_in? %><!--管理者-->
-    <h1 class="text-center"><%= link_to admins_path,class: 'text-secondary' do %>Member<% end %></h1>
-    <% elsif user_signed_in? %><!--会員-->
-    <h1 class="text-center"><%= link_to new_song_path,class: 'text-secondary' do %>New song<% end %></h1>
-    <% else %><!--非会員-->
-    <h1 class="text-center"><%= link_to new_user_registration_path,class: 'text-secondary' do %>Sign up<% end %></h1>
-    <% end %>
+  <div class="col-6 my-4">
+    <h1 class="text-center"><%= link_to top_search_path,class: 'text-secondary' do %>Keyword Search<% end %></h1>
   </div>
-  <div class="col-3 my-4">
-    <% if admin_signed_in? %><!--管理者-->
-    <h1 class="text-center"><%= link_to genres_path,class: 'text-secondary' do %>Genre<% end %></h1>
-    <% elsif user_signed_in? %><!--会員-->
-    <h1 class="text-center"><%= link_to songs_path,class: 'text-secondary' do %>My songs<% end %></h1>
-    <% else %><!--非会員-->
-    <h1 class="text-center"><%= link_to new_user_session_path,class: 'text-secondary' do %>Sign in<% end %></h1>
-    <% end %>
-  </div>
-  <div class="col-3 my-4">
-    <% if admin_signed_in? %><!--管理者-->
-    <h1 class="text-center"><%= link_to top_search_path,class: 'text-secondary' do %>Search<% end %></h1>
-    <% elsif user_signed_in? %><!--会員-->
-    <h1 class="text-center"><%= link_to top_search_path,class: 'text-secondary' do %>Search<% end %></h1>
-    <% else %><!--非会員-->
-    <h1 class="text-center"><%= link_to top_search_path,class: 'text-secondary' do %>Search<% end %></h1>
-    <% end %>
-  </div>
-  
-  
 </div>
