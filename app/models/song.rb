@@ -13,5 +13,6 @@ class Song < ApplicationRecord
   def self.looks(word)
       @song = Song.where("secret_word LIKE?","#{word}")
   end
-
+  
+  
 end

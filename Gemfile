@@ -67,3 +67,6 @@ end
 gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
+
+gem "rqrcode", "~> 2.0"
+gem 'clipboard-rails'

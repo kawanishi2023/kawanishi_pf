@@ -1,6 +1,8 @@
 
 <!--会員ページ　楽曲詳細-->
 
+
+
 <h3 class="css_font title mb-3">楽曲詳細</h3>
 <div class="row my-2">
   <div class="col-1"></div>
@@ -143,8 +145,24 @@
 </div>
 <% end %>
 
-<!--自動スクロール-->
+<hr width="100%">
 
+<!--共有用-->
+<div class="row my-3">
+  <div class="col-1"></div>
+  <div class="col-5 text-center">
+    <h3 class="css_font">QRコードで楽曲を共有</h3>
+    <%= qrcode request.url %>
+  </div>
+  <div class="col-5 text-center ">
+    <h3 class="css_font">URLで楽曲を共有</h3><br>
+    <h5 class="css_font">『 <%= @song.name %> / <%= @song.artist %> 』</h5><br>
+    <h5 class="css_font">▼下記URLからアクセスしてください▼</h5>
+    <h5 class="css_font"><%= request.url %></h5>
+  </div>
+</div>
+
+<!--自動スクロール-->
 <script>
 var start = false;
 $('table').on('click', function() {
