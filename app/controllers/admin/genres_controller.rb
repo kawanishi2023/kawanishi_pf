@@ -8,10 +8,18 @@ class Admin::GenresController < ApplicationController
 
   def create
     @genre = Genre.new(genre_params)
-    @genre.save!
-    #render :index
+    
+  if @genre.save
     redirect_to genres_path
+  else
+    flash[:notice] = "正しく入力してください。"
+    @genres = Genre.all
+    @genre = Genre.new
+    render :index
   end
+  end
+    
+  
 
   def destroy
   end

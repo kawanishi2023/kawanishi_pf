@@ -9,8 +9,13 @@ class User::SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @song.user = current_user
-    @song.save
+  if @song.save
     redirect_to song_path(@song)
+  else
+    flash[:notice] = "公開ステータス・曲名・アーティスト名・ジャンルは入力必須項目です。"
+    @genre = Genre.all
+    render :new
+  end
   end
 
   def edit
@@ -20,15 +25,14 @@ class User::SongsController < ApplicationController
 
   def update
     @song = Song.find(params[:id])
+
     @song.update(song_params)
-    redirect_to song_path(@song)  
+    redirect_to song_path(@song)
   end
 
   def show
-
     @song =  Song.find(params[:id])
     @comment = Comment.new
-
   end
 
   def index
@@ -40,7 +44,7 @@ class User::SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
-    redirect_to songs_path  
+    redirect_to songs_path
   end
 
   private
