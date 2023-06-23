@@ -8,6 +8,4 @@ class User < ApplicationRecord
   has_many :songs, dependent: :destroy
   has_many :opinions, dependent: :destroy
   
-  
-         
 end

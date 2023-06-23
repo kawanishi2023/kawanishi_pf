@@ -1,2 +1,17 @@
-<h1>User::Opinions#new</h1>
-<p>Find me in app/views/user/opinions/new.html.erb</p>
+
+<!--要望フォーム-->
+
+<div class="row my-3 css_font opinion_form">
+<div class="col-4"></div>
+<div class="col-4">
+<div class="css_font"><%= flash[:notice] %></div>
+<h3 class="title pb-2">要望フォーム</h3>
+<%= form_with model: @song do |f| %>
+<%= f.label :要望フォーム %><br>
+<%= f.text_area :opinion, placeholder: "ご意見を入力してください。" %><br>
+<%= f.submit '管理者へ送信' %>
+<% end %><br>
+<h8 class="text-danger">※サービス向上のため、ご登録いただいているメールアドレスにご連絡させていただく場合がございます。予めご了承ください。</h8>
+</div>
+<div class="col-4"></div>
+</div>

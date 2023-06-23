@@ -27,7 +27,9 @@ Rails.application.routes.draw do
     resources :songs, only: [:new, :create, :edit, :update, :show, :index, :destroy] do
       resources :comments, only: [:create, :destroy]
     end
-    resources :opinions, only: [:new, :create]
+    post 'opinions' => 'opinions#create'
+    get 'opinions' => 'opinions#new'
+    # resources :opinions, only: [:new, :create]
   end
   
   scope module: :admin do
