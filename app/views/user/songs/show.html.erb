@@ -102,11 +102,11 @@
       </thead>
       <tbody>
       <% @song.comments.each do |comment| %>
-        <tr>
+        <tr id="huga">
           <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
           <td><%= comment.name %></td>
           <td><%= comment.comment %></td>
-          <td>
+          <td id="hoge">
           <% if comment.user == current_user %>
           <%= link_to "削除", song_comment_path(comment.song, comment), method: :delete,class: 'text-secondary' %>
           <% end %>
@@ -165,7 +165,7 @@
 <!--自動スクロール-->
 <script>
 var start = false;
-$('table').on('click', function() {
+$('table td:not(#hoge), table tr:not(#huga)').on('click', function() {
   if ( start == false ){
     start = true;
     $('html, body').animate(
