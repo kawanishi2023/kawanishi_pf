@@ -165,8 +165,7 @@
 <!--自動スクロール-->
 <script>
 var start = false;
-$('table td:not(#hoge), table tr:not(#huga)').on('click', function(e) {
-  console.log(e.target);
+$('table td:not(#hoge), table tr:not(#huga)').on('click', function() {
   if ( start == false ){
     start = true;
     $('html, body').animate(
