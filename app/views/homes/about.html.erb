@@ -19,6 +19,10 @@
     <h6 class="css_font">・バンドメンバー内での楽曲共有</h6>
     <h6 class="css_font">・セッションやサポートメンバーへの楽曲共有</h6><br>
     <h4 class="css_font">など、楽曲を扱う場面で使用することが出来るツールです。</h4>
+    <br>
+    <% if user_signed_in? %>
+    <h6 class="css_font"><%= link_to opinions_path,class: 'text-secondary' do %>>>機能に関する要望はこちらから<% end %></h6>
+    <% end %>
   </div>
   <div class="col-2"></div>
 </div>

@@ -1,2 +1,30 @@
-<h1>Admin::Opinions#index</h1>
-<p>Find me in app/views/admin/opinions/index.html.erb</p>
+
+<!--管理者用ご意見確認フォーム-->
+
+<div class="row my-3 css_font opinion_form">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <h3 class="css_font title my-3">ご意見一覧</h3>
+    <table class="table" width="100%">
+      <thead class="thead-light">
+      <tr>
+        <th class="css_font">ID</th>
+        <th class="css_font">ユーザー名</th>
+        <th class="css_font">メールアドレス</th>
+        <th class="css_font">ご意見内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @opinion.each do |opinion| %>
+        <tr>
+        <td class="css_font"><%= opinion.user_id %></td>
+        <td class="css_font"><%= opinion.user.name %></td>
+        <td class="css_font"><%= opinion.user.email %></td>
+        <td class="css_font"><%= opinion.opinion %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-1"></div>
+</div>

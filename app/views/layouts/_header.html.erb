@@ -13,6 +13,7 @@
         <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
         <!--管理者-->
+        <li class="nav-item css_font"><%= link_to admin_opinions_path,class: 'nav-link' do %>Opinion<% end %></li>
         <li class="nav-item css_font"><%= link_to admins_path,class: 'nav-link' do %>Member<% end %></li>
         <li class="nav-item css_font"><%= link_to genres_path,class: 'nav-link' do %>Genre<% end %></li>
         <li class="nav-item css_font"><%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary' do %>Log out<% end %></li>

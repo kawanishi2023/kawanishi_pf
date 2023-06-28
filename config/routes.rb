@@ -37,7 +37,8 @@ Rails.application.routes.draw do
     # patch 'admins/:id/withdrawal' => 'admins#withdrawal', as: 'admin_withdrawal'
     resources :admins, only: [:index, :update, :edit]
     resources :genres, only: [:create, :index, :destroy, :edit, :update]
-    resources :opinions, only: [:index]
+    get 'admin_opinions' => 'opinions#index'
+    # resources :opinions, only: [:index]
   end
   
   
