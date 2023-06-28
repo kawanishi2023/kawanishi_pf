@@ -7,7 +7,7 @@ class User::OpinionsController < ApplicationController
 
   def create
     @opinion = Opinion.new(opinion_params)
-    @opinion.user=current_user
+    @opinion.user_id=current_user.id
     if @opinion.save
       flash[:notice] = "ご意見ありがとうございました"
       redirect_to root_path
