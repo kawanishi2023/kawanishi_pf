@@ -1,0 +1,36 @@
+<div class="row my-3 css_font opinion_form">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <h3 class="css_font title my-3">楽曲一覧</h3>
+    <table class="table" width="100%">
+      <thead class="thead-light">
+      <tr>
+        <th class="css_font">投稿アカウント名</th>
+        <th class="css_font">曲名</th>
+        <th class="css_font">アーティスト名</th>
+        <th class="css_font">公開ステータス</th>
+        <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @song.each do |song| %>
+        <tr>
+        <td class="css_font"><%= song.user.name %></td>
+        <td class="css_font"><%= link_to song_path(song.id),class: 'text-secondary' do %><%= song.name %><% end %></td>
+        <td class="css_font"><%= song.artist %></td>
+        <td class="css_font">
+          <% if song.is_opened == false %>
+          <b class="text-danger css_font">非公開</b>
+          <% elsif %>
+          <b class="text-success css_font">公開</b>
+          <% end %>
+        </td>
+        <td class="css_font"><%= link_to admin_songs_path(id: song.id), method: :delete,class: 'text-secondary' do %><i class="fa-solid fa-trash"></i><% end %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @song %>
+  </div>
+  <div class="col-1"></div>
+</div>
