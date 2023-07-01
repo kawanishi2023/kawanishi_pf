@@ -12,6 +12,7 @@
         <th class="css_font">ユーザー名</th>
         <th class="css_font">メールアドレス</th>
         <th class="css_font">ご意見内容</th>
+        <th></th>
         </tr>
       </thead>
       <tbody>
@@ -21,10 +22,12 @@
         <td class="css_font"><%= opinion.user.name %></td>
         <td class="css_font"><%= opinion.user.email %></td>
         <td class="css_font"><%= opinion.opinion %></td>
+        <td class="css_font"><%= link_to "削除", admin_opinions_path(id: opinion.id), method: :delete,class: 'text-secondary' %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
+    <%= paginate @opinion %>
   </div>
   <div class="col-1"></div>
 </div>

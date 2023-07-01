@@ -2,7 +2,7 @@ class Admin::AdminsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @user = User.all
+    @user = User.page(params[:page])
   end
   
   def edit

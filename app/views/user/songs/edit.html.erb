@@ -57,7 +57,7 @@
       
       <div class="my-1">
         <%= f.label :コード進行（スペースは全角スペースを使用してください）%><br>
-        <%= f.text_area :chord, placeholder: "コード進行/歌詞" %>
+        <%= f.text_area :chord, placeholder: "コード進行/歌詞", oninput: "autoResize(this)" %>
       </div>
       
       <div class="my-1">
@@ -69,3 +69,18 @@
   </div>
   <div class="col-3"></div>
 </div>
+
+
+<!--auto resize-->
+
+<script>
+  // oninputで発火(改行がエリアに反映される)
+  function autoResize(textarea) {
+  textarea.style.height = "auto";
+  textarea.style.height = (textarea.scrollHeight) + "px";
+  }
+  
+  // ページを開いた際に発火（文章量でテキストエリアの大きさが変わる変数指定がターボリンクスの関係でエラー発生のため下記コーディング）
+  document.getElementById('song_chord').style.height = "auto";
+  document.getElementById('song_chord').style.height = (document.getElementById('song_chord').scrollHeight) + "px";
+</script>

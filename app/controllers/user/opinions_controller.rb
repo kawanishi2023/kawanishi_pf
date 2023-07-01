@@ -21,7 +21,7 @@ class User::OpinionsController < ApplicationController
    private
 
    def opinion_params
-    params.require(:opinion).permit(:opinion)
+     params.require(:opinion).permit(:opinion)
    end
 
 end

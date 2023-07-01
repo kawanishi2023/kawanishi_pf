@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :admins, only: [:index, :update, :edit]
     resources :genres, only: [:create, :index, :destroy, :edit, :update]
     get 'admin_opinions' => 'opinions#index'
+    delete 'admin_opinions' => 'opinions#destroy'
     # resources :opinions, only: [:index]
   end
   

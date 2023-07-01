@@ -57,7 +57,7 @@
 
       <div class="my-1">
         <%= f.label :コード進行（スペースは全角スペースを使用してください）%><br>
-        <%= f.text_area :chord, placeholder: "コード進行/歌詞" %>
+        <%= f.text_area :chord, placeholder: "コード進行/歌詞", oninput: "autoResize(this)" %>
       </div>
 
       <div class="my-1">
@@ -69,3 +69,13 @@
   </div>
   <div class="col-3"></div>
 </div>
+
+
+<!--auto resize-->
+
+<script>
+  function autoResize(textarea) {
+    textarea.style.height = "auto";
+    textarea.style.height = (textarea.scrollHeight) + "px";
+  }
+</script>

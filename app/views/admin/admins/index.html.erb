@@ -3,7 +3,7 @@
 
 <div class="row my-3">
   <div class="col-1"></div>
-  <div class="col-10">
+  <div class="col-10 css_font">
   <h3 class="css_font title my-3">会員一覧</h3>
   <table class='table'>
     <thead class="thead-light">
@@ -35,6 +35,7 @@
     <% end %>
     </tbody>
   </table>
+  <%= paginate @user %>
   </div>
   <div class="col-1"></div>
 </div>
