@@ -15,4 +15,19 @@ class Song < ApplicationRecord
   end
   
   
+  def self.looks(search, retrieval)
+    if search == "perfect_match"
+      @song = Song.where("name LIKE?", "#{retrieval}")
+    elsif search == "forward_match"
+      @song = Song.where("name LIKE?","#{retrieval}%")
+    elsif search == "backward_match"
+      @song = Song.where("name LIKE?","%#{retrieval}")
+    elsif search == "partial_match"
+      @song = Song.where("name LIKE?","%#{retrieval}%")
+    else
+      @song = Song.all
+    end
+  end
+  
+  
 end

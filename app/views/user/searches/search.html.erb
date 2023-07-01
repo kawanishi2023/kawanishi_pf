@@ -1,0 +1,27 @@
+ <!--ここは会員内検索のリザルト画面-->
+
+<!--下記参考サイトのコピペ未編集-->
+
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象が曲名の時 -->
+  <% if @range == "曲名" %>
+    <tbody>
+      <% @song.each do |song| %>
+        <tr>
+          <td><%= song.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象が曲名ではない時(= 検索対象がアーティスト名の時) -->
+    <tbody>
+      <% @song.each do |song| %>
+        <tr>
+          <td><%= song.artist %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

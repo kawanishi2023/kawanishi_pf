@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
     post 'opinions' => 'opinions#create'
     get 'opinions' => 'opinions#new'
+    get 'user_search' => 'searches#search'
     # resources :opinions, only: [:new, :create]
   end
 
