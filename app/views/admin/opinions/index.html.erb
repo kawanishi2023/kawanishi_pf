@@ -22,7 +22,7 @@
         <td class="css_font"><%= opinion.user.name %></td>
         <td class="css_font"><%= opinion.user.email %></td>
         <td class="css_font"><%= opinion.opinion %></td>
-        <td class="css_font"><%= link_to "削除", admin_opinions_path(id: opinion.id), method: :delete,class: 'text-secondary' %></td>
+        <td class="css_font"><%= link_to admin_opinions_path(id: opinion.id), method: :delete,class: 'text-secondary' do %><i class="fa-solid fa-trash"></i><% end %></td>
         </tr>
         <% end %>
       </tbody>

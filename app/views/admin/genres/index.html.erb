@@ -33,7 +33,7 @@
       <tbody>
         <tr>
         <td class="align-middle css_font " width="50%" align="center" ><%= genre.name %></td>
-        <td class="css_font" width="50%" align="center"><%=link_to "ジャンル編集", edit_genre_path(genre.id), class:'btn btn-outline-secondary' %></td>
+        <td class="css_font" width="50%" align="center"><%=link_to edit_genre_path(genre.id), class:'text-secondary' do %><i class="fa-solid fa-pen-to-square"></i><% end %></td>
         </tr>
       </tbody>
       <% end %>

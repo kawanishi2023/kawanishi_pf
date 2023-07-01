@@ -29,7 +29,7 @@
         <% end %>
         </td>
         <td class="css_font">
-        <%= link_to "会員情報を編集する", edit_admin_path(user.id), class:'btn btn-outline-secondary'  %>
+        <%= link_to edit_admin_path(user.id), class:'text-secondary' do %><i class="fa-solid fa-pen-to-square"></i><% end %>
         </td>
       </tr>
     <% end %>
