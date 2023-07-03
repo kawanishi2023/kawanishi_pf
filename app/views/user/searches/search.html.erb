@@ -8,7 +8,7 @@
   <!--検索対象が曲名の時 -->
   <% if @range == "曲名" %>
     <tbody>
-      <% @song.each do |song| %>
+      <% @songs.each do |song| %>
         <tr>
           <td><%= song.name %></td>
         </tr>
@@ -17,7 +17,7 @@
   <% else %>
     <!--検索対象が曲名ではない時(= 検索対象がアーティスト名の時) -->
     <tbody>
-      <% @song.each do |song| %>
+      <% @songs.each do |song| %>
         <tr>
           <td><%= song.artist %></td>
         </tr>

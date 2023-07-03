@@ -13,9 +13,9 @@ class Song < ApplicationRecord
   def self.looks(word)
       @song = Song.where("secret_word LIKE?","#{word}")
   end
-  
-  
-  def self.looks(search, retrieval)
+
+
+  def self.song_looks(search, retrieval)
     if search == "perfect_match"
       @song = Song.where("name LIKE?", "#{retrieval}")
     elsif search == "forward_match"
@@ -28,6 +28,21 @@ class Song < ApplicationRecord
       @song = Song.all
     end
   end
-  
-  
+
+
+  def self.artist_looks(search, retrieval)
+    if search == "perfect_match"
+      @song = Song.where("artist LIKE?", "#{retrieval}")
+    elsif search == "forward_match"
+      @song = Song.where("artist LIKE?","#{retrieval}%")
+    elsif search == "backward_match"
+      @song = Song.where("artist LIKE?","%#{retrieval}")
+    elsif search == "partial_match"
+      @song = Song.where("artist LIKE?","%#{retrieval}%")
+    else
+      @song = Song.all
+    end
+  end
+
+
 end

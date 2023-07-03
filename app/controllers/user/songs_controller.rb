@@ -31,7 +31,20 @@ class User::SongsController < ApplicationController
   end
 
   def show
-    @song =  Song.find(params[:id])
+    if user_signed_in?
+      @song =  Song.find(params[:id])
+    else
+      
+      # 非ログイン時に非公開ステータス楽曲を除外する
+      @song =  Song.find(params[:id])
+      if @song.is_opened == true
+        @song
+      else
+        flash[:notice] = "非公開楽曲です。"
+        redirect_to root_path
+      end  
+      
+    end
     @comment = Comment.new
   end
 
