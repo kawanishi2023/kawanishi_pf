@@ -8,62 +8,63 @@
     <h3 class="css_font title my-3">楽曲編集</h3>
     <div class="css_font song">
       <%= form_with model: @song do |f| %>
-      
+
       <div class="my-1">
         <%= f.label :公開ステータス %><br>
         <%= f.radio_button :is_opened, false %>非公開
         <%= f.radio_button :is_opened, true %>公開<br>
       </div>
-      
+
       <div class="my-1">
         <%= f.label :曲名 %><br>
         <%= f.text_field :name, placeholder: "曲名" %>
       </div>
-      
+
       <div class="my-1">
         <%= f.label :アーティスト %><br>
         <%= f.text_field :artist, placeholder: "アーティスト" %>
       </div>
-      
+
       <div class="my-1">
         <%= f.label :ジャンル %><br>
         <%= f.select :genre_id, options_from_collection_for_select(@genre, :id, :name, @song.genre_id), { include_blank: "--選択してください--" } %>
       </div>
-      
+
       <div class="my-1">
         <%= f.label :チューニング %><br>
         <%= f.text_field :tuning, placeholder: "チューニング" %>
       </div>
-      
+
       <div class="my-1">
         <%= f.label :Capo（半角数字のみ）%><br>
         <%= f.text_field :capo, placeholder: "Capo" %>
       </div>
-      
+
       <div class="my-1">
         <%= f.label :BPM（半角数字のみ）%><br>
         <%= f.text_field :bpm, placeholder: "BPM" %>
       </div>
-      
+
       <div class="my-1">
         <%= f.label :曲のキー %><br>
         <%= f.text_field :tonic, placeholder: "曲のキー" %>
       </div>
-      
+
       <div class="my-1">
         <%= f.label :合言葉 %><br>
         <%= f.text_field :secret_word, placeholder: "合言葉" %>
       </div>
-      
+
       <div class="my-1">
         <%= f.label :コード進行（スペースは全角スペースを使用してください）%><br>
+        <%= f.label :※スマートフォンで使用される場合1行10文字程度にしてください%><br>
         <%= f.text_area :chord, placeholder: "コード進行/歌詞", oninput: "autoResize(this)" %>
       </div>
-      
+
       <div class="my-1">
         <%= f.submit '投稿' %>
       </div>
-      
+
       <% end %>
     </div>
   </div>
@@ -79,7 +80,7 @@
   textarea.style.height = "auto";
   textarea.style.height = (textarea.scrollHeight) + "px";
   }
-  
+
   // ページを開いた際に発火（文章量でテキストエリアの大きさが変わる変数指定がターボリンクスの関係でエラー発生のため下記コーディング）
   document.getElementById('song_chord').style.height = "auto";
   document.getElementById('song_chord').style.height = (document.getElementById('song_chord').scrollHeight) + "px";
