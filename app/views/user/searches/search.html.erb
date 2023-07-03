@@ -1,27 +1,54 @@
- <!--ここは会員内検索のリザルト画面-->
+ 
+ <!--会員内検索結果画面-->
 
-<!--下記参考サイトのコピペ未編集-->
-
-<h2>Results index</h2>
-
-<table class="table table-hover table-inverse">
-  <!--検索対象が曲名の時 -->
-  <% if @range == "曲名" %>
-    <tbody>
-      <% @songs.each do |song| %>
+<div class="row my-3">
+  <div class="col-2"></div>
+  <div class="col-8 css_font">
+    <h3 class="css_font title">検索結果</h3>
+    <table class="table table-inverse">
+      <thead class="thead-light">
         <tr>
-          <td><%= song.name %></td>
+        <th>曲名</th>
+        <th>アーティスト名</th>
+        <th>公開ステータス</th>
         </tr>
-      <% end %>
-    </tbody>
-  <% else %>
-    <!--検索対象が曲名ではない時(= 検索対象がアーティスト名の時) -->
-    <tbody>
-      <% @songs.each do |song| %>
+      </thead>  
+      <!--検索対象が曲名の時 -->
+      <% if @range == "曲名" %>
+      <tbody>
+        <% @songs.each do |song| %>
         <tr>
-          <td><%= song.artist %></td>
+        <td><%= link_to song_path(song.id), class: "text-secondary" do %><%= song.name %><% end %></td>
+        <td><%= song.artist %></td>
+        <td>
+        <% if song.is_opened == false %>
+        <b class="text-danger css_font">非公開</b>
+        <% elsif %>
+        <b class="text-success css_font">公開</b>
+        <% end %>
+        </td>
         </tr>
+        <% end %>
+      </tbody>
+      <% else %>
+      <!--検索対象が曲名ではない時(= 検索対象がアーティスト名の時) -->
+      <tbody>
+        <% @songs.each do |song| %>
+        <tr>
+        <td><%= link_to song_path(song.id), class: "text-secondary" do %><%= song.name %><% end %></td>
+        <td><%= song.artist %></td>
+        <td>
+        <% if song.is_opened == false %>
+        <b class="text-danger css_font">非公開</b>
+        <% elsif %>
+        <b class="text-success css_font">公開</b>
+        <% end %>
+        </td>
+        </tr>
+        <% end %>
+      </tbody>
       <% end %>
-    </tbody>
-  <% end %>
-</table>
+    </table>
+  </div>
+  <div class="col-2"></div>
+</div>

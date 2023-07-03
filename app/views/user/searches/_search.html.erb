@@ -2,9 +2,9 @@
 
   <div class="css_font">
     <%= form_with url: user_search_path, local: true, method: :get do |f| %>
-      <%= f.text_field :retrieval %>
+      <%= f.text_field :retrieval , placeholder: "検索ワード"%>
       <%= f.select :range, options_for_select([['曲名'], ['アーティスト名']]) %>
       <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
-      <%= f.submit "検索", class: "btn btn-secondary" %>
+      <%= f.submit "検索", class: "btn btn-secondary btn-sm" %>
     <% end %>
   </div>

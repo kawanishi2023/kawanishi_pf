@@ -33,6 +33,8 @@ class User::SongsController < ApplicationController
   def show
     if user_signed_in?
       @song =  Song.find(params[:id])
+    elsif admin_signed_in?
+      @song =  Song.find(params[:id])
     else
       
       # 非ログイン時に非公開ステータス楽曲を除外する
